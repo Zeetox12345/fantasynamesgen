@@ -1,7 +1,20 @@
-
 import { Wand2, Sword, Skull, Crown, Gamepad, Heart, Atom, Shield, Trees, Sun, Book, Ship, Theater } from "lucide-react";
 import { CategoryCard } from "@/components/CategoryCard";
 
+// Active categories - only Fantasy is visible
+const categories = [
+  {
+    title: "Fantasy",
+    description: "Generate names for elves, dwarves, and magical beings",
+    icon: <Wand2 className="w-6 h-6" />,
+    href: "/fantasy"
+  }
+];
+
+/* HIDDEN CATEGORIES - TO RESTORE ALL CATEGORIES:
+ * 1. Delete the categories array above
+ * 2. Uncomment this entire block and remove the comment markers
+ *
 const categories = [
   {
     title: "Fantasy",
@@ -178,6 +191,7 @@ const categories = [
     href: "/wow"
   }
 ];
+*/
 
 const Index = () => {
   return (
@@ -186,7 +200,7 @@ const Index = () => {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 heading-gradient animate-float">
-            Fantasy Name Generator
+            Fantasy Name Generators
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
             Generate epic names for every realm, world, and universe. Perfect for games, stories, and adventures.
