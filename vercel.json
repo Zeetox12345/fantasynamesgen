@@ -1,12 +1,5 @@
 {
-  "version": 2,
-  "routes": [
-    { "handle": "filesystem" },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html",
-      "status": 200
-    }
-  ],
-  "trailingSlash": false
-} 
+  "rewrites": [
+    { "source": "/fantasy", "destination": "/fantasy/index.html" }
+  ]
+}
