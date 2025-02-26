@@ -4,10 +4,14 @@
   <meta charset="utf-8">
   <title>Redirecting...</title>
   <script>
-    // Store the path that caused the 404
-    sessionStorage.setItem('redirect', window.location.pathname);
-    // Redirect to the root
-    window.location.href = '/';
+    // Get the path from the URL or use the current path
+    const path = window.location.pathname;
+    
+    // Store the path in sessionStorage for the main app to use
+    sessionStorage.setItem('redirectPath', path + window.location.search);
+    
+    // Redirect to the root with a flag indicating we're handling a redirect
+    window.location.href = '/?redirect=true';
   </script>
 </head>
 <body>

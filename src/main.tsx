@@ -1,13 +1,41 @@
-import { createRoot } from 'react-dom/client'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 
-// Check if we need to redirect based on sessionStorage
-// This is used in conjunction with the 404.html page for GitHub Pages
-const redirect = sessionStorage.getItem('redirect');
-if (redirect) {
-  sessionStorage.removeItem('redirect');
-  window.history.replaceState(null, '', redirect);
+// This script helps handle direct navigation to routes on servers that don't support SPA routing
+// It will redirect from /404.html to the correct route with a query parameter
+const pathname = window.location.pathname;
+const search = window.location.search;
+
+// Only redirect if we're not at the root and not already handling a redirect
+if (pathname !== '/' && 
+    pathname !== '/index.html' && 
+    pathname !== '/404.html' && 
+    !search.includes('redirect=')) {
+  // Store the full path in sessionStorage
+  sessionStorage.setItem('redirectPath', pathname + search);
+  
+  // Check if we need to redirect through 404.html
+  // This helps with GitHub Pages and other static hosts
+  if (window.location.href.includes('github.io') || 
+      window.location.href.includes('netlify.app') ||
+      window.location.href.includes('vercel.app')) {
+    window.location.href = '/404.html?redirect=true';
+  }
 }
 
-createRoot(document.getElementById("root")!).render(<App />);
+// If we're handling a redirect from 404.html
+if (search.includes('redirect=true')) {
+  const redirectPath = sessionStorage.getItem('redirectPath');
+  if (redirectPath) {
+    sessionStorage.removeItem('redirectPath');
+    window.history.replaceState(null, '', redirectPath);
+  }
+}
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)
