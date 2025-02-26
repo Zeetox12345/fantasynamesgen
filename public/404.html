@@ -10,8 +10,11 @@
     // Store the path in sessionStorage for the main app to use
     sessionStorage.setItem('redirectPath', path + window.location.search);
     
+    // Add a timestamp to ensure the browser doesn't use a cached version
+    const timestamp = Date.now();
+    
     // Redirect to the root with a flag indicating we're handling a redirect
-    window.location.href = '/?redirect=true';
+    window.location.href = `/?redirect=true&t=${timestamp}`;
   </script>
 </head>
 <body>

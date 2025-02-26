@@ -20,8 +20,27 @@ if (pathname !== '/' &&
   // This helps with GitHub Pages and other static hosts
   if (window.location.href.includes('github.io') || 
       window.location.href.includes('netlify.app') ||
-      window.location.href.includes('vercel.app')) {
-    window.location.href = '/404.html?redirect=true';
+      window.location.href.includes('vercel.app') ||
+      // Add handling for custom domains
+      !window.location.href.includes('localhost')) {
+    
+    // Check if we're in production mode with a custom domain
+    const isCustomDomain = !window.location.href.includes('vercel.app') && 
+                          !window.location.href.includes('localhost');
+                          
+    if (isCustomDomain) {
+      // For custom domains, try to use history API first
+      try {
+        window.history.replaceState(null, '', pathname);
+        window.location.reload();
+      } catch (e) {
+        // If that fails, use the 404.html fallback
+        window.location.href = '/404.html?redirect=true';
+      }
+    } else {
+      // For known hosting platforms, use the 404.html fallback
+      window.location.href = '/404.html?redirect=true';
+    }
   }
 }
 
