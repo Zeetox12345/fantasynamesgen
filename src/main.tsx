@@ -12,6 +12,7 @@ const search = window.location.search;
 if (pathname !== '/' && 
     pathname !== '/index.html' && 
     pathname !== '/404.html' && 
+    pathname !== '/vercel-fallback.html' && 
     !search.includes('redirect=')) {
   // Store the full path in sessionStorage
   sessionStorage.setItem('redirectPath', pathname + search);
@@ -21,11 +22,17 @@ if (pathname !== '/' &&
   if (window.location.href.includes('github.io') || 
       window.location.href.includes('netlify.app') ||
       window.location.href.includes('vercel.app')) {
-    window.location.href = '/404.html?redirect=true';
+    
+    // For Vercel specifically, use the vercel-fallback.html
+    if (window.location.href.includes('vercel.app')) {
+      window.location.href = '/vercel-fallback.html?redirect=true';
+    } else {
+      window.location.href = '/404.html?redirect=true';
+    }
   }
 }
 
-// If we're handling a redirect from 404.html
+// If we're handling a redirect from 404.html or vercel-fallback.html
 if (search.includes('redirect=true')) {
   const redirectPath = sessionStorage.getItem('redirectPath');
   if (redirectPath) {

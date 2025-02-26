@@ -2,19 +2,29 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Redirecting...</title>
+  <title>Page Not Found</title>
   <script>
     // Get the path from the URL or use the current path
     const path = window.location.pathname;
+    const search = window.location.search;
     
     // Store the path in sessionStorage for the main app to use
-    sessionStorage.setItem('redirectPath', path + window.location.search);
+    sessionStorage.setItem('redirectPath', path + search);
+    
+    // Check if we're on Vercel
+    const isVercel = window.location.href.includes('vercel.app') || 
+                     document.referrer.includes('vercel.app');
     
     // Redirect to the root with a flag indicating we're handling a redirect
-    window.location.href = '/?redirect=true';
+    window.location.href = isVercel ? 
+      '/?redirect=true&from=404&path=' + encodeURIComponent(path) : 
+      '/?redirect=true';
   </script>
 </head>
 <body>
-  <p>Redirecting...</p>
+  <div style="text-align: center; padding: 50px;">
+    <h1>Page Not Found</h1>
+    <p>Redirecting to the homepage...</p>
+  </div>
 </body>
 </html> 

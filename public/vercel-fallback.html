@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    // Get the current path
+    const path = window.location.pathname;
+    const search = window.location.search;
+    
+    // Store the path in sessionStorage for the main app to use
+    sessionStorage.setItem('redirectPath', path + search);
+    
+    // Redirect to the root with a flag indicating we're handling a redirect
+    window.location.href = '/?redirect=true';
+  </script>
+</head>
+<body>
+  <p>Redirecting to the requested page...</p>
+</body>
+</html> 
