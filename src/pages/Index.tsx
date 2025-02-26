@@ -1,5 +1,5 @@
 
-import { Wand2, Sword, Skull, Crown } from "lucide-react";
+import { Wand2, Sword, Skull, Crown, Controller, Heart, Atom, Shield, Tree, Sun, Book, Ship, CircusTent } from "lucide-react";
 import { CategoryCard } from "@/components/CategoryCard";
 
 const categories = [
@@ -22,16 +22,154 @@ const categories = [
     href: "/skyrim"
   },
   {
+    title: "Splatoon",
+    description: "Create quirky and colorful Inkling names",
+    icon: <Controller className="w-6 h-6" />,
+    href: "/splatoon"
+  },
+  {
+    title: "Kenshi",
+    description: "Post-apocalyptic and warrior names",
+    icon: <Sword className="w-6 h-6" />,
+    href: "/kenshi"
+  },
+  {
+    title: "Undertale",
+    description: "Unique and charming character names",
+    icon: <Heart className="w-6 h-6" />,
+    href: "/undertale"
+  },
+  {
+    title: "Diablo",
+    description: "Dark fantasy and demonic names",
+    icon: <Skull className="w-6 h-6" />,
+    href: "/diablo"
+  },
+  {
+    title: "Fallout",
+    description: "Post-apocalyptic wasteland names",
+    icon: <Atom className="w-6 h-6" />,
+    href: "/fallout"
+  },
+  {
+    title: "Lord of the Rings",
+    description: "Middle-earth inspired names",
+    icon: <Crown className="w-6 h-6" />,
+    href: "/lotr"
+  },
+  {
+    title: "Halo",
+    description: "Sci-fi and Spartan warrior names",
+    icon: <Shield className="w-6 h-6" />,
+    href: "/halo"
+  },
+  {
+    title: "Path of Exile",
+    description: "Dark fantasy character names",
+    icon: <Shield className="w-6 h-6" />,
+    href: "/poe"
+  },
+  {
+    title: "Baldur's Gate 3",
+    description: "D&D-inspired character names",
+    icon: <Crown className="w-6 h-6" />,
+    href: "/bg3"
+  },
+  {
     title: "The Witcher",
     description: "Names inspired by the world of monster hunters",
     icon: <Sword className="w-6 h-6" />,
     href: "/witcher"
   },
   {
+    title: "ESO",
+    description: "Elder Scrolls Online character names",
+    icon: <Crown className="w-6 h-6" />,
+    href: "/eso"
+  },
+  {
+    title: "Stardew Valley",
+    description: "Cozy farm and village names",
+    icon: <Tree className="w-6 h-6" />,
+    href: "/stardew"
+  },
+  {
+    title: "Avatar: The Last Airbender",
+    description: "Names from the four nations",
+    icon: <Sun className="w-6 h-6" />,
+    href: "/avatar"
+  },
+  {
+    title: "Roblox",
+    description: "Fun and creative usernames",
+    icon: <Controller className="w-6 h-6" />,
+    href: "/roblox"
+  },
+  {
+    title: "Animal Crossing",
+    description: "Cute island and villager names",
+    icon: <Tree className="w-6 h-6" />,
+    href: "/animalcrossing"
+  },
+  {
+    title: "Warhammer",
+    description: "Epic names from the grimdark future",
+    icon: <Book className="w-6 h-6" />,
+    href: "/warhammer"
+  },
+  {
+    title: "Dragon Age",
+    description: "Fantasy RPG character names",
+    icon: <Book className="w-6 h-6" />,
+    href: "/dragonage"
+  },
+  {
+    title: "Sunless Sea",
+    description: "Gothic naval and horror names",
+    icon: <Ship className="w-6 h-6" />,
+    href: "/sunlesssea"
+  },
+  {
     title: "Lovecraftian",
     description: "Cosmic horror and ancient deity names",
     icon: <Skull className="w-6 h-6" />,
     href: "/lovecraftian"
+  },
+  {
+    title: "Zelda",
+    description: "Names from Hyrule and beyond",
+    icon: <Sun className="w-6 h-6" />,
+    href: "/zelda"
+  },
+  {
+    title: "My Hero Academia",
+    description: "Hero and villain names",
+    icon: <Heart className="w-6 h-6" />,
+    href: "/mha"
+  },
+  {
+    title: "Beyblade",
+    description: "Powerful blader names",
+    icon: <Sword className="w-6 h-6" />,
+    href: "/beyblade"
+  },
+  {
+    title: "Elden Ring",
+    description: "Names from the Lands Between",
+    icon: <Sword className="w-6 h-6" />,
+    href: "/eldenring"
+  },
+  {
+    title: "Star Trek",
+    description: "Names from across the galaxy",
+    icon: <Atom className="w-6 h-6" />,
+    href: "/startrek"
+  },
+  {
+    title: "The Amazing Digital Circus",
+    description: "Quirky digital performer names",
+    icon: <CircusTent className="w-6 h-6" />,
+    href: "/tadc"
   },
   {
     title: "World of Warcraft",
