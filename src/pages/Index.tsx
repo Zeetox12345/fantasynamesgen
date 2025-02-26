@@ -1,5 +1,5 @@
 
-import { Wand2, Sword, Skull, Crown, Controller, Heart, Atom, Shield, Tree, Sun, Book, Ship, CircusTent } from "lucide-react";
+import { Wand2, Sword, Skull, Crown, Gamepad, Heart, Atom, Shield, Trees, Sun, Book, Ship, Theater } from "lucide-react";
 import { CategoryCard } from "@/components/CategoryCard";
 
 const categories = [
@@ -24,7 +24,7 @@ const categories = [
   {
     title: "Splatoon",
     description: "Create quirky and colorful Inkling names",
-    icon: <Controller className="w-6 h-6" />,
+    icon: <Gamepad className="w-6 h-6" />,
     href: "/splatoon"
   },
   {
@@ -90,7 +90,7 @@ const categories = [
   {
     title: "Stardew Valley",
     description: "Cozy farm and village names",
-    icon: <Tree className="w-6 h-6" />,
+    icon: <Trees className="w-6 h-6" />,
     href: "/stardew"
   },
   {
@@ -102,13 +102,13 @@ const categories = [
   {
     title: "Roblox",
     description: "Fun and creative usernames",
-    icon: <Controller className="w-6 h-6" />,
+    icon: <Gamepad className="w-6 h-6" />,
     href: "/roblox"
   },
   {
     title: "Animal Crossing",
     description: "Cute island and villager names",
-    icon: <Tree className="w-6 h-6" />,
+    icon: <Trees className="w-6 h-6" />,
     href: "/animalcrossing"
   },
   {
@@ -168,7 +168,7 @@ const categories = [
   {
     title: "The Amazing Digital Circus",
     description: "Quirky digital performer names",
-    icon: <CircusTent className="w-6 h-6" />,
+    icon: <Theater className="w-6 h-6" />,
     href: "/tadc"
   },
   {
