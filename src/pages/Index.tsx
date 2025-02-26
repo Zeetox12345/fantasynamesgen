@@ -1,18 +1,18 @@
 
-import { Wand2, Sword, Skull, Dragon, Crown, Magic } from "lucide-react";
+import { Wand2, Sword, Skull, Crown } from "lucide-react";
 import { CategoryCard } from "@/components/CategoryCard";
 
 const categories = [
   {
     title: "Fantasy",
     description: "Generate names for elves, dwarves, and magical beings",
-    icon: <Magic className="w-6 h-6" />,
+    icon: <Wand2 className="w-6 h-6" />,
     href: "/fantasy"
   },
   {
     title: "Dungeons & Dragons",
     description: "Create names for your next D&D character",
-    icon: <Dragon className="w-6 h-6" />,
+    icon: <Crown className="w-6 h-6" />,
     href: "/dnd"
   },
   {
