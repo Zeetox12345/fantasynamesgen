@@ -2,7 +2,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useNavigate, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Index from "./pages/Index";
 import Fantasy from "./pages/Fantasy";
 import NotFound from "./pages/NotFound";
@@ -50,12 +51,32 @@ import WorldOfWarcraft from "./pages/WorldOfWarcraft";
 
 const queryClient = new QueryClient();
 
+// Handle redirects from 404.html
+const RedirectHandler = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  
+  useEffect(() => {
+    // Check if we have a stored path in sessionStorage
+    const redirectPath = sessionStorage.getItem('redirectPath');
+    if (redirectPath && location.pathname === '/') {
+      // Clear the stored path
+      sessionStorage.removeItem('redirectPath');
+      // Navigate to the stored path
+      navigate(redirectPath);
+    }
+  }, [navigate, location]);
+  
+  return null;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <RedirectHandler />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/fantasy" element={<Fantasy />} />
