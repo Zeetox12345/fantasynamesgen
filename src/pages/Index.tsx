@@ -205,6 +205,11 @@ const Index = () => {
             />
           ))}
         </div>
+
+        {/* Footer */}
+        <footer className="mt-24 border-t border-border pt-6 text-center text-sm text-muted-foreground">
+          <p>Copyright 2025 – FantasyNamesGen</p>
+        </footer>
       </div>
     </div>
   );
