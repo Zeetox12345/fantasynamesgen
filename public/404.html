@@ -4,20 +4,61 @@
   <meta charset="utf-8">
   <title>Redirecting...</title>
   <script>
-    // Get the path from the URL or use the current path
+    // This script provides a client-side fallback for SPA routing
+    // It's used when the server doesn't properly redirect to index.html
+    
+    // Get the current path and search params
     const path = window.location.pathname;
+    const search = window.location.search;
+    const hash = window.location.hash;
     
-    // Store the path in sessionStorage for the main app to use
-    sessionStorage.setItem('redirectPath', path + window.location.search);
+    // Store the full URL path in sessionStorage for the main app to use
+    sessionStorage.setItem('redirectPath', path + search + hash);
     
-    // Add a timestamp to ensure the browser doesn't use a cached version
-    const timestamp = Date.now();
+    // Log for debugging purposes
+    console.log('404.html: Storing path for redirect:', path + search + hash);
     
-    // Redirect to the root with a flag indicating we're handling a redirect
-    window.location.href = `/?redirect=true&t=${timestamp}`;
+    // Create the redirect URL with a flag
+    const redirectUrl = window.location.origin + '/?redirect=true';
+    
+    // Inform the user and redirect
+    console.log('404.html: Redirecting to', redirectUrl);
+    window.location.href = redirectUrl;
   </script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      background-color: #f7f8fa;
+      color: #333;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    h1 { font-size: 24px; margin-bottom: 10px; }
+    p { font-size: 16px; line-height: 1.5; }
+    .spinner {
+      border: 3px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top: 3px solid #3498db;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
-  <p>Redirecting...</p>
+  <h1>Redirecting you to the right page</h1>
+  <div class="spinner"></div>
+  <p>If you are not redirected automatically, <a href="/">click here to go to the homepage</a>.</p>
 </body>
 </html> 
