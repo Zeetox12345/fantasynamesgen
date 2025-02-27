@@ -7,7 +7,8 @@ const categories = [
     title: "Fantasy",
     description: "Generate names for elves, dwarves, and magical beings",
     icon: <Wand2 className="w-6 h-6" />,
-    href: "/fantasy"
+    href: "/fantasy",
+    image: "/images/categories/fantasy/fantasy-main.jpg"
   }
 ];
 
@@ -20,7 +21,8 @@ const categories = [
     title: "Fantasy",
     description: "Generate names for elves, dwarves, and magical beings",
     icon: <Wand2 className="w-6 h-6" />,
-    href: "/fantasy"
+    href: "/fantasy",
+    image: "/images/categories/fantasy/fantasy-main.jpg"
   },
   {
     title: "Dungeons & Dragons",
@@ -216,6 +218,7 @@ const Index = () => {
               description={category.description}
               icon={category.icon}
               href={category.href}
+              image={category.image}
             />
           ))}
         </div>

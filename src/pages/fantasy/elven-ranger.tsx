@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/dialog";
 import { Helmet } from "react-helmet";
 import { loadNameData, generateNames, CharacterNameData } from "@/lib/nameUtils";
+import { GeneratorImage } from "@/components/GeneratorImage";
 
 // Elven Ranger name data
 const maleFirstNames = [
@@ -348,112 +349,147 @@ const ElvenRangerNameGenerator = () => {
         </div>
 
         {/* Introduction */}
-        <section id="introduction" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Introduction</h2>
-          <div className="prose max-w-none prose-sm sm:prose-base">
-            <p>
-              Elven Rangers are the silent guardians of ancient forests and mystical woodlands. With their 
-              unparalleled connection to nature, exceptional archery skills, and ability to move without 
-              trace through the wilderness, they serve as protectors of elven realms and natural sanctuaries.
+        <section id="introduction" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">Introduction</h2>
+          <div className="prose prose-lg max-w-none leading-relaxed text-muted-foreground/90">
+            <p className="mb-4">
+              Elven Rangers are legendary wilderness guardians who combine the natural grace and longevity of elves with 
+              masterful archery and tracking skills. These forest sentinels serve as the first line of defense for elven 
+              realms, patrolling ancient woodlands and ensuring that no threats encroach upon their sacred territories.
+            </p>
+            <p className="mb-4">
+              With their intimate connection to nature and centuries to perfect their craft, Elven Rangers develop an 
+              almost supernatural ability to move unseen through the wilderness, read the subtle signs of the forest, 
+              and strike with deadly precision from the shadows of the trees they protect.
             </p>
             <p>
-              These skilled individuals combine the natural grace and longevity of elves with specialized 
-              training in wilderness survival, tracking, and combat. They often serve as scouts, messengers, 
-              and the first line of defense against those who would threaten their woodland homes.
-            </p>
-            <p>
-              The name of an elven ranger typically reflects both their elven heritage and their special 
-              connection to the natural world. This generator helps you create authentic and evocative names 
-              for your elven ranger characters in role-playing games, fantasy stories, or any creative project.
+              This generator creates names for these graceful wilderness protectors, providing you with authentic-sounding 
+              elven names that reflect both their heritage and their ranger calling.
             </p>
           </div>
+          
+          {/* Featured Elven Ranger Image */}
+          <GeneratorImage 
+            src="/images/categories/fantasy/elven-ranger/elven-ranger-main.jpg"
+            alt="Elven Ranger"
+            caption="An Elven Ranger moves silently through ancient woods, bow drawn and senses alert to the faintest signs of danger."
+          />
         </section>
 
         {/* What is a Good Name */}
-        <section id="what-is-a-good-name" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">What is a Good Elven Ranger Name?</h2>
-          <div className="prose max-w-none prose-sm sm:prose-base">
-            <p>
-              A good elven ranger name should evoke both the ethereal, graceful nature of elven culture 
-              and the ranger's deep connection to the wilderness. Here are some characteristics of effective 
-              elven ranger names:
+        <section id="what-is-a-good-name" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">What Makes a Good Elven Ranger Name?</h2>
+          <div className="prose prose-lg max-w-none leading-relaxed text-muted-foreground/90">
+            <p className="mb-4">
+              A good Elven Ranger name should reflect both their elven heritage and their connection to the wilderness. 
+              Here are some characteristics that make for effective Elven Ranger names:
             </p>
-            <ul>
-              <li><strong>Flowing Sounds:</strong> Elven names typically feature flowing, melodic sounds with many vowels and soft consonants.</li>
-              <li><strong>Nature References:</strong> Surnames often include references to natural elements like trees, stars, wind, or animals.</li>
-              <li><strong>Poetic Quality:</strong> Names that have an inherent beauty or poetic quality to them.</li>
-              <li><strong>Ancient Feeling:</strong> Names that sound ancient and timeless, reflecting the long lifespan of elves.</li>
-              <li><strong>Meaningful Elements:</strong> Components that have significance in elven culture or describe the ranger's abilities.</li>
+            <ul className="space-y-2 mb-6">
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Flowing Sounds:</span> 
+                <span>Melodic names with soft consonants and long vowels that reflect the grace and beauty of elven language.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Nature Elements:</span> 
+                <span>References to forests, stars, animals, or natural phenomena that symbolize their connection to the wilderness.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Meaningful Titles:</span> 
+                <span>Epithets or titles that describe their role as protectors, hunters, or guides in the wild.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Ancient Quality:</span> 
+                <span>Names that sound timeless and ancient, reflecting the long-lived nature of elves.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Subtle Strength:</span> 
+                <span>Names that convey quiet power and resilience rather than brute force.</span>
+              </li>
             </ul>
             <p>
-              The best elven ranger names combine a traditional elven first name with a surname or epithet 
-              that hints at their ranger abilities or their special connection to nature. This creates a name 
-              that is both authentically elven and reflective of their ranger profession.
+              The best Elven Ranger names often combine a lyrical first name with a surname or epithet that hints at 
+              their wilderness expertise, creating a name that feels both authentically elven and fitting for a ranger.
             </p>
           </div>
         </section>
 
         {/* How to Use */}
-        <section id="how-to-use" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">How to Use the Generator</h2>
-          <div className="prose max-w-none prose-sm sm:prose-base">
-            <p>Using our Elven Ranger Name Generator is intuitive and simple:</p>
-            <ol>
-              <li><strong>Select Gender:</strong> Choose between male and female options to get gender-appropriate first names.</li>
-              <li><strong>Generate Names:</strong> Click the "Generate Names" button to create a list of 10 unique elven ranger names.</li>
-              <li><strong>Browse Results:</strong> Look through the generated names to find one that resonates with your character concept.</li>
-              <li><strong>Regenerate if Needed:</strong> If none of the names appeal to you, simply click the button again for a new set.</li>
-              <li><strong>Mix and Match:</strong> Feel free to mix first names and last names from different generated results to create your perfect combination.</li>
+        <section id="how-to-use" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">How to Use the Generator</h2>
+          <div className="prose prose-lg max-w-none leading-relaxed text-muted-foreground/90">
+            <p className="mb-4">Using our Elven Ranger Name Generator is straightforward:</p>
+            <ol className="space-y-3 mb-6 pl-5">
+              <li className="pl-2">
+                <span className="font-semibold text-primary">Select Gender:</span> Choose whether you want male, female, or gender-neutral names.
+              </li>
+              <li className="pl-2">
+                <span className="font-semibold text-primary">Generate Names:</span> Click the "Generate Names" button to create a list of 10 unique Elven Ranger names.
+              </li>
+              <li className="pl-2">
+                <span className="font-semibold text-primary">Browse Results:</span> Look through the generated names to find one that suits your character.
+              </li>
+              <li className="pl-2">
+                <span className="font-semibold text-primary">Regenerate if Needed:</span> If none of the names appeal to you, simply click the button again for a new set.
+              </li>
+              <li className="pl-2">
+                <span className="font-semibold text-primary">Mix and Match:</span> Feel free to combine different first names and surnames from the generated results to create your perfect Elven Ranger name.
+              </li>
             </ol>
             <p>
-              The generator combines traditional elven first names with nature-inspired surnames that reflect 
-              the ranger's connection to the wilderness, their skills, or notable traits. This creates balanced 
-              names that sound authentically elven while highlighting their ranger profession.
+              Each generated name comes with a brief description that suggests the character's personality or notable skills, 
+              helping to inspire your character creation.
             </p>
           </div>
         </section>
 
         {/* Naming Traditions */}
-        <section id="naming-traditions" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Elven Ranger Naming Traditions</h2>
-          <div className="prose max-w-none prose-sm sm:prose-base">
-            <p>
-              Elven rangers follow several naming traditions that blend standard elven customs with 
-              elements unique to their role as wilderness guardians:
+        <section id="naming-traditions" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">Elven Ranger Naming Traditions</h2>
+          <div className="prose prose-lg max-w-none leading-relaxed text-muted-foreground/90">
+            <p className="mb-5">
+              Elven Rangers follow distinct naming patterns that reflect both their cultural heritage and their wilderness profession:
             </p>
-            <h3>Birth Names and Chosen Names</h3>
-            <p>
-              Like all elves, rangers receive a birth name from their parents. However, upon completing 
-              their ranger training, many choose a new name or epithet that reflects their new identity 
-              and connection to nature. For example, an elf named Elrond might become known as "Elrond Startracker" 
-              after demonstrating exceptional skill at navigating by the stars.
-            </p>
-            <h3>Nature Bonds</h3>
-            <p>
-              Many elven rangers take names that reflect a special connection to a particular aspect of 
-              nature. These might reference elements they have an affinity with, animals they share traits 
-              with, or natural phenomena they've mastered understanding. A ranger with exceptional night 
-              vision might be called "Thranduil Nightshade."
-            </p>
-            <h3>Deed Names</h3>
-            <p>
-              Some rangers earn names based on notable deeds or accomplishments. These "deed names" often 
-              become more widely known than their birth names. A ranger who saved a forest from fire might 
-              become known as "Legolas Flamequencher."
-            </p>
-            <h3>Ancient Names</h3>
-            <p>
-              Some elven rangers choose to honor ancient heroes or ancestors by taking elements of their 
-              names. This connects them to the long history of elven rangers who came before them and 
-              signifies their commitment to upholding those traditions.
-            </p>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-primary">Birth Names</h3>
+                <p>
+                  Elven Rangers typically receive a birth name that follows traditional elven naming conventions. These names 
+                  are often melodic and flowing, with many syllables and elegant sounds. Examples might include Thalion, Elanor, 
+                  Galadhriel, or Legolas.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-primary">Family Names</h3>
+                <p>
+                  Many elves have family names that trace their lineage back through centuries. For Rangers, these names might 
+                  reference ancient forests, celestial bodies, or legendary ancestors. Examples include Starleaf, Moonwhisper, 
+                  or Silverbow.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-primary">Chosen Names</h3>
+                <p>
+                  Some Elven Rangers adopt new names when they take up the mantle of wilderness guardian. These chosen names 
+                  often reflect their personal connection to nature or a significant event in their lives. A ranger might be 
+                  known as "Wolfriend," "Stormwalker," or "Dawntracker."
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-primary">Honorifics and Titles</h3>
+                <p>
+                  Accomplished Elven Rangers may earn honorifics or titles that are added to their names. These might indicate 
+                  their rank within ranger society, special skills, or notable achievements. Titles like "Pathfinder," "Master 
+                  of Shadows," or "Guardian of the Eastern Marches" might be used formally or in certain contexts.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* Popular Names */}
-        <section id="popular-names" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Most Popular Elven Ranger Names</h2>
-          <p className="mb-4 sm:mb-6">Below is a collection of the most popular elven ranger names, each with its own unique significance:</p>
+        <section id="popular-names" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">Most Popular Elven Ranger Names</h2>
+          <p className="text-lg mb-6 text-muted-foreground/90">Below are some renowned elven ranger names that have become popular in fantasy settings:</p>
           
           <div className="mb-6 sm:mb-8 overflow-x-auto">
             <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Male Elven Ranger Names</h3>

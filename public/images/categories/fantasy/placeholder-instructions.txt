@@ -1,0 +1,45 @@
+PLACEHOLDER IMAGE CREATION INSTRUCTIONS
+
+If you don't have images ready yet, you can create simple placeholder images to test the layout:
+
+Option 1: Use an online placeholder service
+--------------------------------------------
+You can use services like:
+- https://placeholder.com/
+- https://placehold.co/
+- https://placekitten.com/
+
+Example URLs:
+- Main category image (1200x675): https://placehold.co/1200x675/9333ea/ffffff?text=Fantasy
+- Space Ranger (800x450): https://placehold.co/800x450/3b82f6/ffffff?text=Space+Ranger
+- Dwarf Ranger (800x450): https://placehold.co/800x450/ef4444/ffffff?text=Dwarf+Ranger
+- Elven Ranger (800x450): https://placehold.co/800x450/22c55e/ffffff?text=Elven+Ranger
+- Halfling Ranger (800x450): https://placehold.co/800x450/f59e0b/ffffff?text=Halfling+Ranger
+- Chaos Dwarf City (800x450): https://placehold.co/800x450/64748b/ffffff?text=Chaos+Dwarf+City
+
+Simply visit these URLs in your browser, save the images, and place them in the appropriate folders.
+
+Option 2: Create your own placeholder images
+--------------------------------------------
+1. Use any image editing software (Photoshop, GIMP, Canva, etc.)
+2. Create a new image with the recommended dimensions
+3. Add a colored background
+4. Add text with the name of the category/generator
+5. Save as JPG or PNG in the appropriate folder
+
+Option 3: Use AI image generators
+---------------------------------
+You can use AI image generators like:
+- DALL-E
+- Midjourney
+- Stable Diffusion
+
+Example prompts:
+- Fantasy: "A magical fantasy landscape with castles and dragons, digital art style"
+- Space Ranger: "A futuristic space ranger in armor with cosmic background, digital art"
+- Dwarf Ranger: "A sturdy dwarf ranger with axe in mountainous terrain, fantasy art"
+- Elven Ranger: "An elegant elven ranger with bow in a mystical forest, fantasy art"
+- Halfling Ranger: "A nimble halfling scout in natural surroundings, fantasy art"
+- Chaos Dwarf City: "A dark, imposing chaos dwarf city with industrial elements and fire, fantasy art"
+
+Remember to resize the generated images to the recommended dimensions before saving them. 

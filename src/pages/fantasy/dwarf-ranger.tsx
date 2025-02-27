@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/dialog";
 import { Helmet } from "react-helmet";
 import { loadNameData, generateNames, CharacterNameData } from "@/lib/nameUtils";
+import { GeneratorImage } from "@/components/GeneratorImage";
 
 const DwarfRangerNameGenerator = () => {
   const [gender, setGender] = useState<"male" | "female">("male");
@@ -189,113 +190,147 @@ const DwarfRangerNameGenerator = () => {
         </div>
 
         {/* Introduction */}
-        <section id="introduction" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Introduction</h2>
-          <div className="prose max-w-none prose-sm sm:prose-base">
-            <p>
-              Dwarf Rangers are elite scouts and wilderness experts who patrol the mountainous regions, 
-              forests, and borderlands of dwarven kingdoms. Unlike their kin who prefer the comfort of 
-              underground halls, these hardy individuals venture into the wilderness, serving as the first 
-              line of defense against threats to their people.
+        <section id="introduction" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">Introduction</h2>
+          <div className="prose prose-lg max-w-none leading-relaxed text-muted-foreground/90">
+            <p className="mb-4">
+              Dwarf Rangers are hardy wilderness experts who combine traditional dwarven resilience and craftsmanship with 
+              exceptional survival skills. These stout scouts serve as the eyes and ears of dwarven kingdoms, patrolling 
+              mountain passes, underground routes, and the dangerous borderlands between civilized territories and the wild.
+            </p>
+            <p className="mb-4">
+              Unlike many of their kin who prefer the comfort of underground halls, Dwarf Rangers embrace the challenge of 
+              the open wilderness, developing keen tracking abilities, practical survival knowledge, and combat techniques 
+              suited for a variety of terrains and opponents.
             </p>
             <p>
-              Known for their exceptional tracking abilities, survival skills, and combat prowess, dwarf 
-              rangers combine the natural toughness and craftsmanship of their race with an intimate 
-              knowledge of the wild. They are often solitary figures, though some form small bands that 
-              patrol specific territories.
-            </p>
-            <p>
-              The name of a dwarf ranger often reflects both their dwarven heritage and their connection 
-              to the wilderness. This generator helps you create authentic and meaningful names for your 
-              dwarf ranger characters in role-playing games, fantasy stories, or any creative project.
+              This generator creates names for these stalwart wilderness protectors, providing you with authentic-sounding 
+              dwarven names that reflect both their heritage and their ranger calling.
             </p>
           </div>
+          
+          {/* Featured Dwarf Ranger Image */}
+          <GeneratorImage 
+            src="/images/categories/fantasy/dwarf-ranger/dwarf-ranger-main.jpg"
+            alt="Dwarf Ranger"
+            caption="A Dwarf Ranger stands vigilant on a rocky outcrop, surveying the wilderness with experienced eyes and ready for any danger."
+          />
         </section>
 
         {/* What is a Good Name */}
-        <section id="what-is-a-good-name" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">What is a Good Dwarf Ranger Name?</h2>
-          <div className="prose max-w-none prose-sm sm:prose-base">
-            <p>
-              A good dwarf ranger name should evoke both the sturdy, traditional nature of dwarven culture 
-              and the wilderness expertise of a ranger. Here are some characteristics of effective dwarf 
-              ranger names:
+        <section id="what-is-a-good-name" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">What Makes a Good Dwarf Ranger Name?</h2>
+          <div className="prose prose-lg max-w-none leading-relaxed text-muted-foreground/90">
+            <p className="mb-4">
+              A good Dwarf Ranger name should reflect both their dwarven heritage and their connection to the wilderness. 
+              Here are some characteristics that make for effective Dwarf Ranger names:
             </p>
-            <ul>
-              <li><strong>Strong Consonants:</strong> Dwarven names typically feature strong consonants that convey resilience and strength.</li>
-              <li><strong>Nature References:</strong> Surnames often include references to natural elements like stone, mountains, or forests.</li>
-              <li><strong>Practical Meaning:</strong> Names that reflect practical skills or traits valued in dwarven society.</li>
-              <li><strong>Ancestral Connections:</strong> Names that honor ancestors or dwarven traditions.</li>
-              <li><strong>Descriptive Elements:</strong> Surnames that describe a notable physical feature or skill.</li>
+            <ul className="space-y-2 mb-6">
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Strong Sounds:</span> 
+                <span>Names with hard consonants and guttural sounds that reflect the hardy nature of dwarves.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Nature Elements:</span> 
+                <span>References to mountains, stones, animals, or natural features that symbolize their connection to the wilderness.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Descriptive Epithets:</span> 
+                <span>Titles or nicknames that highlight their skills as trackers, scouts, or wilderness survivors.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Clan References:</span> 
+                <span>Inclusion of clan names or ancestral connections that ground them in dwarven tradition.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Practical Quality:</span> 
+                <span>Names that sound practical and functional, reflecting the no-nonsense approach of dwarves.</span>
+              </li>
             </ul>
             <p>
-              The best dwarf ranger names combine a traditional dwarven first name with a surname that 
-              hints at their ranger abilities or experiences in the wild. This creates a name that is 
-              both authentic to dwarven culture and reflective of their ranger profession.
+              The best Dwarf Ranger names often combine a traditional dwarven first name with a surname or epithet that hints at 
+              their wilderness expertise, creating a name that feels both authentically dwarven and fitting for a ranger.
             </p>
           </div>
         </section>
 
         {/* How to Use */}
-        <section id="how-to-use" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">How to Use the Generator</h2>
-          <div className="prose max-w-none prose-sm sm:prose-base">
-            <p>Using our Dwarf Ranger Name Generator is straightforward:</p>
-            <ol>
-              <li><strong>Select Gender:</strong> Choose between male and female options to get gender-appropriate first names.</li>
-              <li><strong>Generate Names:</strong> Click the "Generate Names" button to create a list of 10 unique dwarf ranger names.</li>
-              <li><strong>Browse Results:</strong> Look through the generated names to find one that suits your character.</li>
-              <li><strong>Regenerate if Needed:</strong> If none of the names appeal to you, simply click the button again for a new set.</li>
-              <li><strong>Mix and Match:</strong> Feel free to mix first names and last names from different generated results to create your perfect combination.</li>
+        <section id="how-to-use" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">How to Use the Generator</h2>
+          <div className="prose prose-lg max-w-none leading-relaxed text-muted-foreground/90">
+            <p className="mb-4">Using our Dwarf Ranger Name Generator is straightforward:</p>
+            <ol className="space-y-3 mb-6 pl-5">
+              <li className="pl-2">
+                <span className="font-semibold text-primary">Select Gender:</span> Choose whether you want male, female, or gender-neutral names.
+              </li>
+              <li className="pl-2">
+                <span className="font-semibold text-primary">Generate Names:</span> Click the "Generate Names" button to create a list of 10 unique Dwarf Ranger names.
+              </li>
+              <li className="pl-2">
+                <span className="font-semibold text-primary">Browse Results:</span> Look through the generated names to find one that suits your character.
+              </li>
+              <li className="pl-2">
+                <span className="font-semibold text-primary">Regenerate if Needed:</span> If none of the names appeal to you, simply click the button again for a new set.
+              </li>
+              <li className="pl-2">
+                <span className="font-semibold text-primary">Mix and Match:</span> Feel free to combine different first names and surnames from the generated results to create your perfect Dwarf Ranger name.
+              </li>
             </ol>
             <p>
-              The generator combines traditional dwarven first names with surnames that reflect the 
-              ranger's connection to nature, their skills, or notable achievements. This creates balanced 
-              names that sound authentically dwarven while highlighting their ranger profession.
+              Each generated name comes with a brief description that suggests the character's personality or notable skills, 
+              helping to inspire your character creation.
             </p>
           </div>
         </section>
 
         {/* Naming Traditions */}
-        <section id="naming-traditions" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Dwarf Ranger Naming Traditions</h2>
-          <div className="prose max-w-none prose-sm sm:prose-base">
-            <p>
-              Dwarf rangers follow several naming traditions that blend standard dwarven customs with 
-              elements unique to their wilderness profession:
+        <section id="naming-traditions" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">Dwarf Ranger Naming Traditions</h2>
+          <div className="prose prose-lg max-w-none leading-relaxed text-muted-foreground/90">
+            <p className="mb-5">
+              Dwarf Rangers follow distinct naming patterns that reflect both their cultural heritage and their wilderness profession:
             </p>
-            <h3>Clan Names and Personal Names</h3>
-            <p>
-              Like all dwarves, rangers have a personal name given at birth and a clan name. However, 
-              many rangers adopt a third name or title that reflects their life in the wilderness. 
-              For example, Thorin Oakenshield might be known among rangers as "Thorin Oakenshield the 
-              Wolftracker."
-            </p>
-            <h3>Deed Names</h3>
-            <p>
-              Many dwarf rangers earn names based on notable deeds or skills. These "deed names" often 
-              replace their clan names when operating in the wild. A ranger who saved their patrol from 
-              a rock slide might become known as "Borin Rockwatcher."
-            </p>
-            <h3>Nature Bonds</h3>
-            <p>
-              Some rangers take names that reflect a special connection to a particular aspect of nature. 
-              These might reference animals they have an affinity with, terrains they specialize in 
-              navigating, or natural phenomena they've mastered predicting.
-            </p>
-            <h3>Secret Names</h3>
-            <p>
-              Many dwarf rangers have secret names known only to their closest companions. These names 
-              often reflect their deepest connection to the wilderness and are used in private ceremonies 
-              or when communicating with nature spirits.
-            </p>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-primary">Clan Names</h3>
+                <p>
+                  Most Dwarf Rangers proudly maintain their clan names, which connect them to their lineage and heritage. 
+                  These names often end in suffixes like "-son," "-dottir," or "-hammer," and may reference ancestral 
+                  professions, achievements, or locations.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-primary">Deed Names</h3>
+                <p>
+                  Many Dwarf Rangers earn "deed names" based on notable achievements in the wilderness. These names often 
+                  describe a significant feat, such as "Trollslayer," "Wolfbane," or "Stormwalker," and may eventually 
+                  replace their birth names in common usage.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-primary">Geographic Titles</h3>
+                <p>
+                  Some Dwarf Rangers take names that reference the specific territories they patrol or protect. Names like 
+                  "Ridgewalker," "Deepvale Guardian," or "Warden of the Eastern Peaks" indicate their area of expertise 
+                  and responsibility.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-primary">Craft-Inspired Names</h3>
+                <p>
+                  Even as wilderness experts, many Dwarf Rangers maintain connections to traditional dwarven crafts. Some 
+                  incorporate these skills into their names, such as "Irontracker," "Stonefinder," or "Gemspotter," 
+                  reflecting how they apply dwarven crafting knowledge to their ranger duties.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* Popular Names */}
-        <section id="popular-names" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Most Popular Dwarf Ranger Names</h2>
-          <p className="mb-4 sm:mb-6">Below is a collection of the most iconic dwarf ranger names, each with its own meaning:</p>
+        <section id="popular-names" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">Most Popular Dwarf Ranger Names</h2>
+          <p className="text-lg mb-6 text-muted-foreground/90">Below are some renowned dwarf ranger names that have become popular in fantasy settings:</p>
           
           <div className="mb-6 sm:mb-8 overflow-x-auto">
             <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Male Names</h3>

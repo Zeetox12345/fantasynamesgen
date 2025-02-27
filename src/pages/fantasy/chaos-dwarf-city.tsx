@@ -1,12 +1,21 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { Wand2, Building2, Map } from "lucide-react";
+import { Wand2, Building2, Map, Info } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { 
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { loadNameData, generateNames, LocationNameData } from "@/lib/nameUtils";
+import { GeneratorImage } from "@/components/GeneratorImage";
 
 // REMOVE hardcoded arrays
 // const prefixes = [ ... ];
@@ -60,8 +69,8 @@ const ChaosDwarfCityNameGenerator = () => {
     <div className="min-h-screen py-8 px-4 sm:py-12 sm:px-6">
       <Helmet>
         <title>Chaos Dwarf City Name Generator - 10,000+ Names | FantasyNamesGen</title>
-        <meta name="description" content="Generate names for Chaos Dwarf cities, districts, and landmarks. Over 10,000 unique name combinations available." />
-        <meta name="keywords" content="chaos dwarf, warhammer, fantasy names, city names, name generator" />
+        <meta name="description" content="Generate the perfect name for your chaos dwarf city. Over 10,000 unique name combinations available." />
+        <meta name="keywords" content="chaos dwarf city, fantasy names, name generator, chaos dwarf, city names, settlement names, RPG names" />
       </Helmet>
       <div className="max-w-7xl mx-auto">
         {/* Header with back button */}
@@ -76,11 +85,11 @@ const ChaosDwarfCityNameGenerator = () => {
           
           <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
             <div className="p-2 sm:p-3 rounded-lg bg-primary/10 text-primary">
-              <Building2 className="w-5 h-5 sm:w-6 sm:h-6" />
+              <Wand2 className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <h1 className="font-display text-3xl sm:text-4xl font-bold">Chaos Dwarf City Name Generator</h1>
           </div>
-          <p className="text-base sm:text-lg text-muted-foreground">Generate dark and imposing names for Chaos Dwarf settlements, districts, and landmarks.</p>
+          <p className="text-base sm:text-lg text-muted-foreground">Generate the perfect name for your chaos dwarf city.</p>
         </div>
 
         {/* Generator Card */}
@@ -153,27 +162,6 @@ const ChaosDwarfCityNameGenerator = () => {
             )}
           </CardContent>
         </Card>
-        
-        {/* Information Section */}
-        <Card className="glass-card">
-          <CardHeader>
-            <CardTitle className="text-xl sm:text-2xl">About Chaos Dwarf Locations</CardTitle>
-          </CardHeader>
-          <CardContent className="prose dark:prose-invert max-w-none">
-            <p>
-              Chaos Dwarf settlements are dark, imposing places built on slavery, industry and the worship of dark gods. Their architecture features harsh angles, black stone, and decorative elements that inspire terror.
-            </p>
-            <p>
-              The major city of the Chaos Dwarfs is <strong>Zharr-Naggrund</strong>, the Great Black Fortress. This terrifying ziggurat-city rises like a black mountain from the volcanic Plain of Zharrduk.
-            </p>
-            <p>
-              Districts within chaos dwarf cities are typically organized around specific industrial functions or social hierarchies, while landmarks often honor their dark gods or commemorate violent conquests.
-            </p>
-            <p>
-              Use these names for your dark fantasy worldbuilding, Warhammer campaigns, or other roleplaying games that feature evil dwarven civilizations.
-            </p>
-          </CardContent>
-        </Card>
 
         {/* Content Table */}
         <div className="mb-6 sm:mb-8">
@@ -200,124 +188,141 @@ const ChaosDwarfCityNameGenerator = () => {
         </div>
 
         {/* Introduction */}
-        <section id="introduction" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Introduction</h2>
-          <div className="prose max-w-none prose-sm sm:prose-base">
-            <p>
-              The Chaos Dwarfs, also known as the Dawi-Zharr in their own twisted tongue, are a 
-              corrupted offshoot of the proud dwarf race. Centuries ago, these dwarfs ventured 
-              too far into the eastern lands, where the influence of Chaos warped their bodies 
-              and souls. Now they dwell in the blighted lands of the Dark Lands, building 
-              massive industrial cities around volcanic pits and enslaving other races to fuel 
-              their endless ambition.
+        <section id="introduction" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">Introduction</h2>
+          <div className="prose prose-lg max-w-none leading-relaxed text-muted-foreground/90">
+            <p className="mb-4">
+              Chaos Dwarf cities are dark and imposing metropolises built by the corrupted dwarves who have fallen to the 
+              influence of Chaos. These cities stand as monuments to industry, slavery, and dark magic, combining dwarven 
+              craftsmanship with chaotic influences to create some of the most formidable urban centers in fantasy worlds.
+            </p>
+            <p className="mb-4">
+              Unlike their uncorrupted kin who build their homes in mountains, Chaos Dwarfs often construct their cities in 
+              volcanic regions, harsh deserts, or blighted plains. Their settlements are characterized by massive ziggurats, 
+              smoke-belching factories, and sprawling slave pens, all surrounded by imposing walls of black iron and obsidian.
             </p>
             <p>
-              Unlike their uncorrupted kin who carve their holds into mountains, Chaos Dwarfs 
-              construct imposing ziggurats, towering fortresses, and sprawling industrial 
-              complexes on the surface. Their cities are hellish places of smoke, fire, and 
-              suffering, where the clanging of hammers and the screams of slaves never cease.
-            </p>
-            <p>
-              The names of Chaos Dwarf cities reflect their dark nature, often incorporating 
-              elements related to fire, iron, darkness, and cruelty. This generator helps you 
-              create authentic and evocative names for Chaos Dwarf settlements in your fantasy 
-              worlds, role-playing games, or creative writing.
+              This generator creates names for these dark dwarven metropolises, providing you with suitably ominous and 
+              powerful-sounding names for your fantasy world's Chaos Dwarf settlements.
             </p>
           </div>
+          
+          {/* Featured Chaos Dwarf City Image */}
+          <GeneratorImage 
+            src="/images/categories/fantasy/chaos-dwarf-city/chaos-dwarf-city-main.jpg"
+            alt="Chaos Dwarf City"
+            caption="A Chaos Dwarf city rises from the volcanic plains, its ziggurats and smoke stacks dominating the blighted landscape."
+          />
         </section>
 
         {/* What is a Good Name */}
-        <section id="what-is-a-good-name" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">What is a Good Chaos Dwarf City Name?</h2>
-          <div className="prose max-w-none prose-sm sm:prose-base">
-            <p>
-              A good Chaos Dwarf city name should evoke images of dark industry, volcanic 
-              landscapes, and tyrannical rule. Here are some characteristics of effective 
-              Chaos Dwarf city names:
+        <section id="what-is-a-good-name" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">What Makes a Good Chaos Dwarf City Name?</h2>
+          <div className="prose prose-lg max-w-none leading-relaxed text-muted-foreground/90">
+            <p className="mb-4">
+              A good Chaos Dwarf city name should evoke feelings of dread, power, and industrial might. Here are some 
+              characteristics that make for effective Chaos Dwarf city names:
             </p>
-            <ul>
-              <li><strong>Harsh Consonants:</strong> Names often feature hard sounds like 'z', 'k', 'g', and 'r', creating a guttural, aggressive feel.</li>
-              <li><strong>Fire and Forge References:</strong> Many names incorporate elements related to fire, forges, and metalworking, reflecting their industrial nature.</li>
-              <li><strong>Hyphenated Structure:</strong> Chaos Dwarf cities often have compound names with two parts connected by a hyphen, such as "Zharr-Naggrund."</li>
-              <li><strong>Dark Modifiers:</strong> Names may include descriptive modifiers like "The Black," "The Burning," or "The Damned."</li>
-              <li><strong>Corrupted Dwarf Words:</strong> They often use twisted versions of traditional dwarf terms, reflecting their corrupted heritage.</li>
+            <ul className="space-y-2 mb-6">
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Harsh Sounds:</span> 
+                <span>Names with hard consonants and guttural sounds that reflect the harsh nature of these cities.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Dark Elements:</span> 
+                <span>References to fire, smoke, iron, blood, or darkness that symbolize the city's nature.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Chaotic Influence:</span> 
+                <span>Elements that suggest corruption, chaos, or dark magic.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Industrial Themes:</span> 
+                <span>References to forges, industry, or craftsmanship twisted by chaos.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Imposing Quality:</span> 
+                <span>Names that sound grand and intimidating, befitting the monumental architecture of these cities.</span>
+              </li>
             </ul>
             <p>
-              The most effective Chaos Dwarf city names combine these elements to create a name 
-              that sounds both distinctly dwarfish and unmistakably evil. The name should 
-              convey the city's function, location, or notable feature while maintaining an 
-              atmosphere of dread and oppression.
+              The best Chaos Dwarf city names often combine these elements to create a name that sounds both dwarven in origin 
+              but twisted by chaotic influence, reflecting the dual nature of these corrupted beings.
             </p>
           </div>
         </section>
 
         {/* How to Use */}
-        <section id="how-to-use" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">How to Use the Generator</h2>
-          <div className="prose max-w-none prose-sm sm:prose-base">
-            <p>Using our Chaos Dwarf City Name Generator is straightforward:</p>
-            <ol>
-              <li><strong>Generate Names:</strong> Click the "Generate Names" button to create a list of 10 unique Chaos Dwarf city names.</li>
-              <li><strong>Browse Results:</strong> Look through the generated names to find one that suits your needs.</li>
-              <li><strong>Regenerate if Needed:</strong> If none of the names appeal to you, simply click the button again for a new set.</li>
-              <li><strong>Customize:</strong> Feel free to modify the generated names by changing prefixes, suffixes, or modifiers to better fit your specific vision.</li>
-              <li><strong>Add Context:</strong> Consider the location and purpose of the city when selecting a name. A major industrial center might have a more imposing name than a minor outpost.</li>
+        <section id="how-to-use" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">How to Use the Generator</h2>
+          <div className="prose prose-lg max-w-none leading-relaxed text-muted-foreground/90">
+            <p className="mb-4">Using our Chaos Dwarf City Name Generator is straightforward:</p>
+            <ol className="space-y-3 mb-6 pl-5">
+              <li className="pl-2">
+                <span className="font-semibold text-primary">Generate Names:</span> Click the "Generate Names" button to create a list of 10 unique Chaos Dwarf city names.
+              </li>
+              <li className="pl-2">
+                <span className="font-semibold text-primary">Browse Results:</span> Look through the generated names to find one that suits your fictional setting.
+              </li>
+              <li className="pl-2">
+                <span className="font-semibold text-primary">Regenerate if Needed:</span> If none of the names appeal to you, simply click the button again for a new set.
+              </li>
+              <li className="pl-2">
+                <span className="font-semibold text-primary">Customize:</span> Feel free to modify any generated name to better fit your specific needs or to add your own creative touch.
+              </li>
             </ol>
             <p>
-              The generator creates names by combining prefixes, suffixes, and sometimes modifiers 
-              that are authentic to Chaos Dwarf naming conventions. Some names will be simple 
-              compound names (like "Zharr-Naggrund"), while others will include descriptive 
-              modifiers (like "Gorgoth-Drazh, The Burning").
+              Each generated name comes with a brief description that suggests the city's primary function or notable feature, 
+              helping to inspire your worldbuilding and storytelling.
             </p>
           </div>
         </section>
 
         {/* Naming Traditions */}
-        <section id="naming-traditions" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Chaos Dwarf City Naming Traditions</h2>
-          <div className="prose max-w-none prose-sm sm:prose-base">
-            <p>
-              Chaos Dwarf cities follow several naming traditions that reflect their dark culture 
-              and twisted history:
+        <section id="naming-traditions" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">Chaos Dwarf City Naming Traditions</h2>
+          <div className="prose prose-lg max-w-none leading-relaxed text-muted-foreground/90">
+            <p className="mb-5">
+              Chaos Dwarf cities follow distinct naming patterns that reflect their dark culture and twisted values:
             </p>
-            <h3>Function-Based Names</h3>
-            <p>
-              Many Chaos Dwarf cities are named according to their primary function. Industrial 
-              centers often include terms related to forges or fire, while slave markets might 
-              reference chains or bondage. Military strongholds typically incorporate terms 
-              suggesting strength or defense.
-            </p>
-            <h3>Geographical References</h3>
-            <p>
-              Cities are sometimes named after prominent geographical features in their vicinity, 
-              particularly volcanic features. Terms referring to mountains, fire pits, ash plains, 
-              or lava rivers are common in these names.
-            </p>
-            <h3>Hashut Worship</h3>
-            <p>
-              As devoted worshippers of Hashut, the Father of Darkness, Chaos Dwarfs often name 
-              important religious centers after aspects of their dark god. These names might 
-              reference bulls (Hashut's symbol), fire, darkness, or sacrifice.
-            </p>
-            <h3>Corrupted Ancestral Names</h3>
-            <p>
-              Some Chaos Dwarf cities bear twisted versions of traditional dwarf naming elements, 
-              deliberately corrupting their ancestral heritage. These names serve as a mockery of 
-              their uncorrupted kin and a reminder of their own transformed nature.
-            </p>
-            <h3>Conquest Commemorations</h3>
-            <p>
-              Occasionally, Chaos Dwarfs name cities to commemorate great victories or conquests. 
-              These names might incorporate elements referring to defeated enemies or significant 
-              battles, serving as permanent monuments to their military achievements.
-            </p>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-primary">Dark Honorifics</h3>
+                <p>
+                  Many Chaos Dwarf cities include honorifics like "Zharr" (meaning fire or burning in their tongue) or "Drazh" 
+                  (meaning blood or pain). These prefixes or suffixes denote the city's importance or dedication to a particular 
+                  aspect of their dark culture.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-primary">Founder Commemoration</h3>
+                <p>
+                  Some cities are named after powerful Chaos Dwarf lords or sorcerer-prophets who founded them or rule over them. 
+                  These names often incorporate the founder's name with words meaning "domain," "forge," or "throne."
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-primary">Industrial Function</h3>
+                <p>
+                  Cities may be named according to their primary industrial function, such as mining, forging, or slave-trading. 
+                  These functional names are often combined with dark or imposing qualifiers.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-primary">Geographical Features</h3>
+                <p>
+                  Some Chaos Dwarf cities are named after corrupted or twisted versions of the geographical features they're built upon, 
+                  such as volcanic mountains, ash plains, or sulfurous lakes.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* Popular Names */}
-        <section id="popular-names" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Most Popular Chaos Dwarf City Names</h2>
-          <p className="mb-4 sm:mb-6">Below is a collection of the most iconic chaos dwarf city names, each with its own dark significance:</p>
+        <section id="popular-names" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">Most Famous Chaos Dwarf Cities</h2>
+          <p className="text-lg mb-6 text-muted-foreground/90">Below are some of the most renowned Chaos Dwarf cities from fantasy lore:</p>
           
           <div className="mb-6 sm:mb-8 overflow-x-auto">
             <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Common Name Elements</h3>

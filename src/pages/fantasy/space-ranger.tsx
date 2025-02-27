@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/dialog";
 import { Helmet } from "react-helmet";
 import { loadNameData, generateNames, CharacterNameData } from "@/lib/nameUtils";
+import { GeneratorImage } from "@/components/GeneratorImage";
 
 // Space Ranger name data
 const maleFirstNames = [
@@ -349,15 +350,15 @@ const SpaceRangerNameGenerator = () => {
         </div>
 
         {/* Introduction */}
-        <section id="introduction" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Introduction</h2>
-          <div className="prose max-w-none prose-sm sm:prose-base">
-            <p>
-              Space Rangers are elite cosmic defenders who patrol the vast reaches of space, protecting planets, 
-              star systems, and galaxies from various threats. These brave individuals come from diverse backgrounds 
+        <section id="introduction" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">Introduction</h2>
+          <div className="prose prose-lg max-w-none leading-relaxed text-muted-foreground/90">
+            <p className="mb-4">
+              Space Rangers are elite cosmic defenders who patrol the vast reaches of space, 
+              protecting planets, star systems, and galaxies from various threats. These brave individuals come from diverse backgrounds 
               and species, but they all share a common purpose: to maintain peace and order throughout the cosmos.
             </p>
-            <p>
+            <p className="mb-4">
               The name of a Space Ranger often reflects their cosmic connection, drawing inspiration from celestial 
               bodies, astronomical phenomena, and cosmic energies. A well-chosen name can convey a ranger's strength, 
               agility, intelligence, and their special connection to the stars.
@@ -367,22 +368,44 @@ const SpaceRangerNameGenerator = () => {
               game, a science fiction story, or any creative project that involves these galactic guardians.
             </p>
           </div>
+          
+          {/* Featured Space Ranger Image */}
+          <GeneratorImage 
+            src="/images/categories/fantasy/space-ranger/space-ranger-main.jpg"
+            alt="Space Ranger"
+            caption="Space Rangers are elite cosmic defenders who patrol the vast reaches of space, protecting planets and star systems from various threats."
+          />
         </section>
 
         {/* What is a Good Name */}
-        <section id="what-is-a-good-name" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">What is a Good Space Ranger Name?</h2>
-          <div className="prose max-w-none prose-sm sm:prose-base">
-            <p>
+        <section id="what-is-a-good-name" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">What is a Good Space Ranger Name?</h2>
+          <div className="prose prose-lg max-w-none leading-relaxed text-muted-foreground/90">
+            <p className="mb-4">
               A good Space Ranger name should evoke the vastness of space and the heroic nature of these cosmic defenders. 
               Here are some characteristics of effective Space Ranger names:
             </p>
-            <ul>
-              <li><strong>Celestial References:</strong> Names that reference stars, planets, constellations, or other cosmic phenomena.</li>
-              <li><strong>Powerful Sounds:</strong> Strong consonants and clear vowels that convey strength and determination.</li>
-              <li><strong>Memorable Quality:</strong> Names that are easy to remember but unique enough to stand out.</li>
-              <li><strong>Heroic Undertones:</strong> Elements that suggest heroism, protection, or guardianship.</li>
-              <li><strong>Cultural Blend:</strong> A mix of familiar and alien-sounding elements to suggest a cosmic origin.</li>
+            <ul className="space-y-2 mb-6">
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Celestial References:</span> 
+                <span>Names that reference stars, planets, constellations, or other cosmic phenomena.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Powerful Sounds:</span> 
+                <span>Strong consonants and clear vowels that convey strength and determination.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Memorable Quality:</span> 
+                <span>Names that are easy to remember but unique enough to stand out.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Heroic Undertones:</span> 
+                <span>Elements that suggest heroism, protection, or guardianship.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="font-semibold text-primary min-w-[180px]">Cultural Blend:</span> 
+                <span>A mix of familiar and alien-sounding elements to suggest a cosmic origin.</span>
+              </li>
             </ul>
             <p>
               The best Space Ranger names often combine a personal name that reflects the individual's character with a surname 
@@ -392,16 +415,26 @@ const SpaceRangerNameGenerator = () => {
         </section>
 
         {/* How to Use */}
-        <section id="how-to-use" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">How to Use the Generator</h2>
-          <div className="prose max-w-none prose-sm sm:prose-base">
-            <p>Using our Space Ranger Name Generator is simple and intuitive:</p>
-            <ol>
-              <li><strong>Select Gender:</strong> Choose between male and female options to get gender-appropriate first names.</li>
-              <li><strong>Generate Names:</strong> Click the "Generate Names" button to create a list of 10 unique Space Ranger names.</li>
-              <li><strong>Browse Results:</strong> Look through the generated names to find one that suits your character.</li>
-              <li><strong>Regenerate if Needed:</strong> If none of the names appeal to you, simply click the button again for a new set.</li>
-              <li><strong>Mix and Match:</strong> Feel free to mix first names and last names from different generated results to create your perfect combination.</li>
+        <section id="how-to-use" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">How to Use the Generator</h2>
+          <div className="prose prose-lg max-w-none leading-relaxed text-muted-foreground/90">
+            <p className="mb-4">Using our Space Ranger Name Generator is simple and intuitive:</p>
+            <ol className="space-y-3 mb-6 pl-5">
+              <li className="pl-2">
+                <span className="font-semibold text-primary">Select Gender:</span> Choose between male and female options to get gender-appropriate first names.
+              </li>
+              <li className="pl-2">
+                <span className="font-semibold text-primary">Generate Names:</span> Click the "Generate Names" button to create a list of 10 unique Space Ranger names.
+              </li>
+              <li className="pl-2">
+                <span className="font-semibold text-primary">Browse Results:</span> Look through the generated names to find one that suits your character.
+              </li>
+              <li className="pl-2">
+                <span className="font-semibold text-primary">Regenerate if Needed:</span> If none of the names appeal to you, simply click the button again for a new set.
+              </li>
+              <li className="pl-2">
+                <span className="font-semibold text-primary">Mix and Match:</span> Feel free to mix first names and last names from different generated results to create your perfect combination.
+              </li>
             </ol>
             <p>
               The generator combines first names inspired by celestial bodies and astronomical terms with last names that 
@@ -411,39 +444,49 @@ const SpaceRangerNameGenerator = () => {
         </section>
 
         {/* Naming Traditions */}
-        <section id="naming-traditions" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Space Ranger Naming Traditions</h2>
-          <div className="prose max-w-none prose-sm sm:prose-base">
-            <p>
+        <section id="naming-traditions" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">Space Ranger Naming Traditions</h2>
+          <div className="prose prose-lg max-w-none leading-relaxed text-muted-foreground/90">
+            <p className="mb-5">
               Space Rangers follow several naming traditions that have evolved over centuries of cosmic protection:
             </p>
-            <h3>Celestial Inspiration</h3>
-            <p>
-              Many Space Rangers adopt names inspired by celestial bodies. This tradition began with the first rangers who felt a 
-              deep connection to the stars they protected. Names like Orion Starstrider or Lyra Voidwalker follow this tradition.
-            </p>
-            <h3>Functional Surnames</h3>
-            <p>
-              Space Ranger surnames often describe their function or special abilities. Names like Cosmoshield, Voidhunter, or 
-              Stellarshot indicate the ranger's role or special talent in cosmic defense.
-            </p>
-            <h3>Honorific Titles</h3>
-            <p>
-              Some rangers earn special titles after notable achievements. These titles may replace or supplement their original names. 
-              For example, a ranger might be known as "Nova the Nebula Guardian" after protecting a significant nebula from destruction.
-            </p>
-            <h3>Homeworld References</h3>
-            <p>
-              Rangers sometimes incorporate references to their home planets or star systems in their names, especially if they come 
-              from notable cosmic locations. This helps maintain a connection to their origins while serving throughout the cosmos.
-            </p>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-primary">Celestial Inspiration</h3>
+                <p>
+                  Many Space Rangers adopt names inspired by celestial bodies. This tradition began with the first rangers who felt a 
+                  deep connection to the stars they protected. Names like Orion Starstrider or Lyra Voidwalker follow this tradition.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-primary">Functional Surnames</h3>
+                <p>
+                  Space Ranger surnames often describe their function or special abilities. Names like Cosmoshield, Voidhunter, or 
+                  Stellarshot indicate the ranger's role or special talent in cosmic defense.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-primary">Honorific Titles</h3>
+                <p>
+                  Some rangers earn special titles after notable achievements. These titles may replace or supplement their original names. 
+                  For example, a ranger might be known as "Nova the Nebula Guardian" after protecting a significant nebula from destruction.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2 text-primary">Homeworld References</h3>
+                <p>
+                  Rangers sometimes incorporate references to their home planets or star systems in their names, especially if they come 
+                  from notable cosmic locations. This helps maintain a connection to their origins while serving throughout the cosmos.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* Popular Names */}
-        <section id="popular-names" className="mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Most Popular Space Ranger Names</h2>
-          <p className="mb-4 sm:mb-6">Below is a collection of the most iconic space ranger names, each with its own meaning:</p>
+        <section id="popular-names" className="mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 text-primary">Most Popular Space Ranger Names</h2>
+          <p className="text-lg mb-6 text-muted-foreground/90">Below is a collection of the most iconic space ranger names, each with its own cosmic significance:</p>
           
           <div className="mb-6 sm:mb-8 overflow-x-auto">
             <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Male Names</h3>
