@@ -9,8 +9,13 @@ interface GeneratorCardProps {
 }
 
 export function GeneratorCard({ title, description, href, image }: GeneratorCardProps) {
+  const handleClick = () => {
+    // Ensure the page scrolls to the top when navigating
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <Link to={href} className="block">
+    <Link to={href} className="block" onClick={handleClick}>
       <div className="glass-card hover-card rounded-lg p-6 group">
         {image && (
           <div className="mb-4 overflow-hidden rounded-md">

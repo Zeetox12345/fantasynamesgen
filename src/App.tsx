@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate, useNavigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { ScrollToTop } from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import Fantasy from "./pages/Fantasy";
 import NotFound from "./pages/NotFound";
@@ -76,6 +77,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <RedirectHandler />
         <Routes>
           <Route path="/" element={<Index />} />
