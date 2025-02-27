@@ -4,25 +4,33 @@
   <meta charset="utf-8">
   <title>Page Not Found</title>
   <script>
-    // Get the path from the URL or use the current path
-    const path = window.location.pathname;
-    const search = window.location.search;
+    // Single Page Apps for GitHub Pages or any static host
+    // MIT License
+    // Modified version of https://github.com/rafgraph/spa-github-pages
     
-    // Store the path in sessionStorage for the main app to use
-    sessionStorage.setItem('redirectPath', path + search);
+    // This script takes the current URL and converts the path and query
+    // string into a single number state value that can be passed to the root index.html
     
-    // Check if we're on Vercel
-    const isVercel = window.location.href.includes('vercel.app') || 
-                     document.referrer.includes('vercel.app');
+    // Save the pathname + search + hash for redirect after page load
+    var pathSegmentsToKeep = 0;
+    var redirectPath = window.location.pathname.split('/').slice(pathSegmentsToKeep).join('/');
+    if (window.location.search) {
+      redirectPath += window.location.search;
+    }
+    if (window.location.hash) {
+      redirectPath += window.location.hash;
+    }
     
-    // Redirect to the root with a flag indicating we're handling a redirect
-    window.location.href = isVercel ? 
-      '/?redirect=true&from=404&path=' + encodeURIComponent(path) : 
-      '/?redirect=true';
+    // Store the path in sessionStorage
+    sessionStorage.setItem('spa-redirect', redirectPath || '/');
+    
+    // Redirect to the root index page with a special flag in the search param
+    var redirectUrl = window.location.origin + '/?spa-redirect=true';
+    window.location.replace(redirectUrl);
   </script>
 </head>
 <body>
-  <div style="text-align: center; padding: 50px;">
+  <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
     <h1>Page Not Found</h1>
     <p>Redirecting to the homepage...</p>
   </div>

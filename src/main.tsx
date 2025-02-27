@@ -3,43 +3,33 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 
-// This script helps handle direct navigation to routes on servers that don't support SPA routing
-// It will redirect from /404.html to the correct route with a query parameter
-const pathname = window.location.pathname;
-const search = window.location.search;
-
-// Only redirect if we're not at the root and not already handling a redirect
-if (pathname !== '/' && 
-    pathname !== '/index.html' && 
-    pathname !== '/404.html' && 
-    pathname !== '/vercel-fallback.html' && 
-    !search.includes('redirect=')) {
-  // Store the full path in sessionStorage
-  sessionStorage.setItem('redirectPath', pathname + search);
+// Handle SPA redirects from 404.html
+(function() {
+  // Get the redirect flag from URL
+  const searchParams = new URLSearchParams(window.location.search);
+  const redirectFlag = searchParams.get('spa-redirect');
   
-  // Check if we need to redirect through 404.html
-  // This helps with GitHub Pages and other static hosts
-  if (window.location.href.includes('github.io') || 
-      window.location.href.includes('netlify.app') ||
-      window.location.href.includes('vercel.app')) {
+  if (redirectFlag === 'true') {
+    // Remove the flag from URL
+    const newUrl = window.location.pathname + 
+      window.location.search.replace(/(\?|&)spa-redirect=true(&|$)/, '$1').replace(/\?$/, '') + 
+      window.location.hash;
     
-    // For Vercel specifically, use the vercel-fallback.html
-    if (window.location.href.includes('vercel.app')) {
-      window.location.href = '/vercel-fallback.html?redirect=true';
+    // Get the stored path from sessionStorage
+    const redirectPath = sessionStorage.getItem('spa-redirect');
+    
+    if (redirectPath) {
+      // Clear the stored path
+      sessionStorage.removeItem('spa-redirect');
+      
+      // Replace the current URL with the original path
+      window.history.replaceState(null, '', redirectPath);
     } else {
-      window.location.href = '/404.html?redirect=true';
+      // If no stored path, just clean up the URL
+      window.history.replaceState(null, '', newUrl);
     }
   }
-}
-
-// If we're handling a redirect from 404.html or vercel-fallback.html
-if (search.includes('redirect=true')) {
-  const redirectPath = sessionStorage.getItem('redirectPath');
-  if (redirectPath) {
-    sessionStorage.removeItem('redirectPath');
-    window.history.replaceState(null, '', redirectPath);
-  }
-}
+})();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
