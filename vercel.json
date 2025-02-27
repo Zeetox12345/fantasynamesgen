@@ -1,15 +1,8 @@
 {
-  "version": 2,
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],
-  "routes": [
-    { "src": "/static/(.*)", "dest": "/static/$1" },
-    { "src": "/assets/(.*)", "dest": "/assets/$1" },
-    { "src": "/favicon.ico", "dest": "/favicon.ico" },
-    { "src": "/robots.txt", "dest": "/robots.txt" },
-    { "src": "/sitemap.xml", "dest": "/sitemap.xml" },
-    { "src": "/(.*)", "dest": "/index.html" }
-  ],
-  "trailingSlash": false
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite"
 } 
