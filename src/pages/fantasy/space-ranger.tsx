@@ -1,11 +1,20 @@
-import { useState } from "react";
-import { Helmet } from "react-helmet";
-import { Wand2 } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Wand2, Info } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Toggle } from "@/components/ui/toggle";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { 
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Helmet } from "react-helmet";
+import { loadNameData, generateNames, CharacterNameData } from "@/lib/nameUtils";
 
 // Space Ranger name data
 const maleFirstNames = [
@@ -170,22 +179,52 @@ const lastNames = [
 const SpaceRangerNameGenerator = () => {
   const [gender, setGender] = useState<"male" | "female">("male");
   const [generatedNames, setGeneratedNames] = useState<string[]>([]);
+  const [nameData, setNameData] = useState<CharacterNameData | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [selectedName, setSelectedName] = useState<string | null>(null);
+  const [nameDescription, setNameDescription] = useState<string | null>(null);
 
-  const generateNames = () => {
-    const newNames: string[] = [];
-    const firstNames = gender === "male" ? maleFirstNames : femaleFirstNames;
-    
-    for (let i = 0; i < 10; i++) {
-      const randomFirstNameIndex = Math.floor(Math.random() * firstNames.length);
-      const randomLastNameIndex = Math.floor(Math.random() * lastNames.length);
-      
-      const firstName = firstNames[randomFirstNameIndex].name;
-      const lastName = lastNames[randomLastNameIndex].name;
-      
-      newNames.push(`${firstName} ${lastName}`);
+  // Load name data when component mounts
+  useEffect(() => {
+    async function fetchNameData() {
+      setLoading(true);
+      const data = await loadNameData("fantasy", "space-ranger");
+      setNameData(data as CharacterNameData);
+      setLoading(false);
     }
     
+    fetchNameData();
+  }, []);
+
+  const generateNamesHandler = () => {
+    if (!nameData) return;
+    
+    const newNames = generateNames(nameData, { gender }, 10);
     setGeneratedNames(newNames);
+  };
+
+  const handleNameClick = (name: string) => {
+    if (!nameData) return;
+    
+    setSelectedName(name);
+    
+    // Find description for each part of the name
+    const [firstName, lastName] = name.split(' ');
+    const firstNameEntry = nameData[gender].find(e => e.name === firstName);
+    const lastNameEntry = nameData.lastNames.find(e => e.name === lastName);
+    
+    let description = '';
+    if (firstNameEntry) {
+      description += firstNameEntry.description;
+    }
+    if (firstNameEntry && lastNameEntry) {
+      description += '. ';
+    }
+    if (lastNameEntry) {
+      description += lastNameEntry.description;
+    }
+    
+    setNameDescription(description);
   };
 
   return (
@@ -193,7 +232,7 @@ const SpaceRangerNameGenerator = () => {
       <Helmet>
         <title>Space Ranger Name Generator - 10,000+ Names | FantasyNamesGen</title>
         <meta name="description" content="Generate the perfect name for your space ranger character. Over 10,000 unique name combinations available." />
-        <meta name="keywords" content="space ranger, sci-fi names, fantasy names, name generator, space, ranger, character names" />
+        <meta name="keywords" content="space ranger, sci-fi names, name generator, space, ranger, character names, RPG names" />
       </Helmet>
       <div className="max-w-7xl mx-auto">
         {/* Header with back button */}
@@ -210,7 +249,7 @@ const SpaceRangerNameGenerator = () => {
             <div className="p-2 sm:p-3 rounded-lg bg-primary/10 text-primary">
               <Wand2 className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
-            <h1 className="font-display text-3xl sm:text-4xl font-bold">Space Ranger Name Generator - 10,000+ Names</h1>
+            <h1 className="font-display text-3xl sm:text-4xl font-bold">Space Ranger Name Generator</h1>
           </div>
           <p className="text-base sm:text-lg text-muted-foreground">Generate the perfect name for your space ranger character.</p>
         </div>
@@ -246,19 +285,38 @@ const SpaceRangerNameGenerator = () => {
               </div>
               
               <Button 
-                onClick={generateNames} 
+                onClick={generateNamesHandler} 
                 className="w-full sm:w-auto"
+                disabled={loading}
                 aria-label="Generate space ranger names"
               >
-                Generate Names
+                {loading ? "Loading..." : "Generate Names"}
               </Button>
               
-              {generatedNames.length > 0 && (
+              {loading && <p>Loading name data...</p>}
+              
+              {!loading && generatedNames.length > 0 && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mt-3 sm:mt-4">
                   {generatedNames.map((name, index) => (
-                    <div key={index} className="p-3 sm:p-4 rounded-md bg-secondary/20 border border-border">
-                      {name}
-                    </div>
+                    <Dialog key={index}>
+                      <DialogTrigger asChild>
+                        <div 
+                          className="p-3 sm:p-4 rounded-md bg-secondary/20 border border-border hover:border-primary cursor-pointer flex justify-between items-center"
+                          onClick={() => handleNameClick(name)}
+                        >
+                          <span>{name}</span>
+                          <Info className="h-4 w-4 text-muted-foreground" />
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent>
+                        <DialogHeader>
+                          <DialogTitle>{selectedName}</DialogTitle>
+                          <DialogDescription>
+                            {nameDescription || "No description available."}
+                          </DialogDescription>
+                        </DialogHeader>
+                      </DialogContent>
+                    </Dialog>
                   ))}
                 </div>
               )}
@@ -385,10 +443,10 @@ const SpaceRangerNameGenerator = () => {
         {/* Popular Names */}
         <section id="popular-names" className="mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Most Popular Space Ranger Names</h2>
-          <p className="mb-4 sm:mb-6">Below is a collection of the most popular space ranger names, each with its own unique significance:</p>
+          <p className="mb-4 sm:mb-6">Below is a collection of the most iconic space ranger names, each with its own meaning:</p>
           
           <div className="mb-6 sm:mb-8 overflow-x-auto">
-            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Male Space Ranger Names</h3>
+            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Male Names</h3>
             <Table>
               <TableHeader>
                 <TableRow>
@@ -397,18 +455,23 @@ const SpaceRangerNameGenerator = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {maleFirstNames.slice(0, 20).map((name, index) => (
+                {!loading && nameData && nameData.male.slice(0, 20).map((name, index) => (
                   <TableRow key={index}>
                     <TableCell className="font-medium">{name.name}</TableCell>
                     <TableCell>{name.description}</TableCell>
                   </TableRow>
                 ))}
+                {loading && (
+                  <TableRow>
+                    <TableCell colSpan={2}>Loading name data...</TableCell>
+                  </TableRow>
+                )}
               </TableBody>
             </Table>
           </div>
           
           <div className="mb-6 sm:mb-8 overflow-x-auto">
-            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Female Space Ranger Names</h3>
+            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Female Names</h3>
             <Table>
               <TableHeader>
                 <TableRow>
@@ -417,18 +480,23 @@ const SpaceRangerNameGenerator = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {femaleFirstNames.slice(0, 20).map((name, index) => (
+                {!loading && nameData && nameData.female.slice(0, 20).map((name, index) => (
                   <TableRow key={index}>
                     <TableCell className="font-medium">{name.name}</TableCell>
                     <TableCell>{name.description}</TableCell>
                   </TableRow>
                 ))}
+                {loading && (
+                  <TableRow>
+                    <TableCell colSpan={2}>Loading name data...</TableCell>
+                  </TableRow>
+                )}
               </TableBody>
             </Table>
           </div>
           
           <div className="overflow-x-auto">
-            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Space Ranger Surnames</h3>
+            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Surnames</h3>
             <Table>
               <TableHeader>
                 <TableRow>
@@ -437,12 +505,17 @@ const SpaceRangerNameGenerator = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {lastNames.slice(0, 20).map((name, index) => (
+                {!loading && nameData && nameData.lastNames.slice(0, 20).map((name, index) => (
                   <TableRow key={index}>
                     <TableCell className="font-medium">{name.name}</TableCell>
                     <TableCell>{name.description}</TableCell>
                   </TableRow>
                 ))}
+                {loading && (
+                  <TableRow>
+                    <TableCell colSpan={2}>Loading name data...</TableCell>
+                  </TableRow>
+                )}
               </TableBody>
             </Table>
           </div>

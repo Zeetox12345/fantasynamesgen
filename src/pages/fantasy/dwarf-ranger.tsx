@@ -1,190 +1,70 @@
-import { useState } from "react";
-import { Helmet } from "react-helmet";
-import { Wand2 } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Wand2, Info } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Toggle } from "@/components/ui/toggle";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-
-// Dwarf Ranger name data
-const maleFirstNames = [
-  { name: "Thrain", description: "Derived from Old Norse, meaning 'yearner' or 'one who longs for adventure'" },
-  { name: "Durin", description: "Named after the first of the Seven Fathers of the Dwarves" },
-  { name: "Balin", description: "Meaning 'strong one' in dwarvish tongues" },
-  { name: "Dwalin", description: "Meaning 'stalwart defender' in ancient dwarf language" },
-  { name: "Thorin", description: "From Norse mythology, meaning 'brave one'" },
-  { name: "Gimli", description: "Meaning 'fire pit' or 'place of fire' in Old Norse" },
-  { name: "Gloin", description: "Meaning 'glowing one' in dwarvish" },
-  { name: "Oin", description: "Derived from Norse mythology, associated with ancient runes" },
-  { name: "Bombur", description: "Meaning 'the swollen one' or 'stout warrior'" },
-  { name: "Bofur", description: "Meaning 'brave in battle' in dwarvish" },
-  { name: "Bifur", description: "Meaning 'trembling mountain' in ancient dwarf dialect" },
-  { name: "Nori", description: "Meaning 'little carved figure' in dwarvish" },
-  { name: "Dori", description: "Meaning 'borer' or 'one who digs deep'" },
-  { name: "Ori", description: "Meaning 'violent' or 'eager warrior'" },
-  { name: "Fili", description: "Meaning 'file' or 'one who shapes metal'" },
-  { name: "Kili", description: "Meaning 'wedge' or 'one who splits stone'" },
-  { name: "Dain", description: "Meaning 'dead' or 'one who faces death without fear'" },
-  { name: "Thror", description: "Meaning 'thriving' or 'prosperous leader'" },
-  { name: "Fundin", description: "Meaning 'found one' or 'discoverer of hidden paths'" },
-  { name: "Gror", description: "Meaning 'growing' or 'one who grows in strength'" },
-  { name: "Borin", description: "Meaning 'born of the mountain'" },
-  { name: "Farin", description: "Meaning 'traveler' or 'wanderer'" },
-  { name: "Gromm", description: "Meaning 'thunder in the mountains'" },
-  { name: "Dargin", description: "Meaning 'axe wielder' or 'skilled with the axe'" },
-  { name: "Tharkun", description: "Meaning 'staff-man' or 'ranger of the deep woods'" },
-  { name: "Bardin", description: "Meaning 'battle singer' or 'one who sings in battle'" },
-  { name: "Gotrek", description: "Meaning 'oath seeker' or 'one bound by honor'" },
-  { name: "Ungrim", description: "Meaning 'unmasked' or 'one who shows his true face'" },
-  { name: "Kazador", description: "Meaning 'gold keeper' or 'guardian of treasures'" },
-  { name: "Belegar", description: "Meaning 'iron hammer' or 'one who strikes like iron'" },
-  { name: "Alrik", description: "Meaning 'ruler of all' or 'king of the wild'" },
-  { name: "Grimmir", description: "Meaning 'grim determination' or 'resolute hunter'" },
-  { name: "Durgan", description: "Meaning 'dark iron' or 'forged in darkness'" },
-  { name: "Rorek", description: "Meaning 'mountain ruler' or 'king of peaks'" },
-  { name: "Thorgrim", description: "Meaning 'Thor's mask' or 'thunder face'" },
-  { name: "Kragg", description: "Meaning 'crag dweller' or 'one who lives on cliffs'" },
-  { name: "Baruk", description: "Meaning 'axe' in ancient dwarvish" },
-  { name: "Drong", description: "Meaning 'strong drink' or 'one who enjoys ale'" },
-  { name: "Kurgan", description: "Meaning 'stone maker' or 'sculptor'" },
-  { name: "Morgrim", description: "Meaning 'dark beard' or 'shadow hunter'" },
-  { name: "Snorri", description: "Meaning 'wise one' or 'knowledgeable tracker'" },
-  { name: "Thrund", description: "Meaning 'mighty thrower' or 'one who hurls stones'" },
-  { name: "Burrnoth", description: "Meaning 'beard of fire' or 'flame-bearded one'" },
-  { name: "Durgath", description: "Meaning 'stone path finder' or 'one who finds paths through mountains'" },
-  { name: "Grunni", description: "Meaning 'ground walker' or 'one who reads the earth'" },
-  { name: "Hargin", description: "Meaning 'hard fist' or 'strong puncher'" },
-  { name: "Jorgun", description: "Meaning 'earth friend' or 'one who communes with stone'" },
-  { name: "Lokri", description: "Meaning 'lock breaker' or 'one who opens secrets'" },
-  { name: "Morek", description: "Meaning 'dark eye' or 'one who sees in darkness'" },
-  { name: "Nurgan", description: "Meaning 'new axe' or 'young warrior'" }
-];
-
-const femaleFirstNames = [
-  { name: "Dis", description: "Meaning 'lady' or 'goddess' in dwarvish" },
-  { name: "Thyra", description: "Meaning 'thunder' or 'storm hunter'" },
-  { name: "Hilda", description: "Meaning 'battle maiden' or 'warrior woman'" },
-  { name: "Dagmar", description: "Meaning 'day maiden' or 'she who hunts by day'" },
-  { name: "Brunhild", description: "Meaning 'armored battle maiden' or 'protected warrior'" },
-  { name: "Gudrun", description: "Meaning 'god's secret lore' or 'keeper of divine knowledge'" },
-  { name: "Freya", description: "Meaning 'lady' or 'noble huntress'" },
-  { name: "Ingrid", description: "Meaning 'beautiful' or 'beloved ranger'" },
-  { name: "Sigrid", description: "Meaning 'victory' or 'triumphant tracker'" },
-  { name: "Astrid", description: "Meaning 'divinely beautiful' or 'star of the mountains'" },
-  { name: "Helga", description: "Meaning 'holy' or 'blessed by the mountain gods'" },
-  { name: "Gerda", description: "Meaning 'protected' or 'guardian of the enclosure'" },
-  { name: "Frida", description: "Meaning 'peace' or 'peaceful protector'" },
-  { name: "Thora", description: "Meaning 'thunder goddess' or 'she who brings the storm'" },
-  { name: "Brynja", description: "Meaning 'armor' or 'protected scout'" },
-  { name: "Dalla", description: "Meaning 'valley maiden' or 'she who knows the lowlands'" },
-  { name: "Embla", description: "Meaning 'elm tree' or 'forest friend'" },
-  { name: "Geira", description: "Meaning 'spear' or 'one who hunts with a spear'" },
-  { name: "Hrefna", description: "Meaning 'raven' or 'she who watches from above'" },
-  { name: "Jora", description: "Meaning 'autumn' or 'harvest hunter'" },
-  { name: "Kara", description: "Meaning 'wild' or 'untamed tracker'" },
-  { name: "Lofn", description: "Meaning 'loving' or 'compassionate guardian'" },
-  { name: "Mist", description: "Meaning 'cloud' or 'she who moves unseen'" },
-  { name: "Nanna", description: "Meaning 'brave' or 'courageous scout'" },
-  { name: "Olrun", description: "Meaning 'ale rune' or 'keeper of brewing secrets'" },
-  { name: "Runa", description: "Meaning 'secret lore' or 'keeper of hidden knowledge'" },
-  { name: "Signy", description: "Meaning 'new victory' or 'successful hunter'" },
-  { name: "Thrud", description: "Meaning 'power' or 'mighty protector'" },
-  { name: "Ulfrun", description: "Meaning 'wolf secret' or 'she who runs with wolves'" },
-  { name: "Vigdis", description: "Meaning 'war goddess' or 'battle maiden'" },
-  { name: "Yrsa", description: "Meaning 'wild' or 'she who is untamed'" },
-  { name: "Zisa", description: "Meaning 'goddess' or 'divine protector'" },
-  { name: "Aud", description: "Meaning 'wealth' or 'finder of treasures'" },
-  { name: "Bergdis", description: "Meaning 'mountain lady' or 'she who knows the peaks'" },
-  { name: "Dotta", description: "Meaning 'daughter' or 'heir to the ranger's path'" },
-  { name: "Eir", description: "Meaning 'mercy' or 'healer of the wilds'" },
-  { name: "Fenja", description: "Meaning 'marsh dweller' or 'she who knows the wetlands'" },
-  { name: "Groa", description: "Meaning 'growing' or 'one with nature'" },
-  { name: "Hildr", description: "Meaning 'battle' or 'warrior of the wilds'" },
-  { name: "Inga", description: "Meaning 'protected by Ing' or 'blessed ranger'" },
-  { name: "Jord", description: "Meaning 'earth' or 'one with the ground'" },
-  { name: "Katla", description: "Meaning 'kettle' or 'brewer of potions'" },
-  { name: "Lind", description: "Meaning 'lime tree' or 'forest guardian'" },
-  { name: "Mardoll", description: "Meaning 'sea bright' or 'she who shines on water'" },
-  { name: "Nott", description: "Meaning 'night' or 'she who hunts in darkness'" },
-  { name: "Odindisa", description: "Meaning 'goddess of Odin' or 'divine tracker'" },
-  { name: "Ran", description: "Meaning 'robbery' or 'she who takes back what was stolen'" },
-  { name: "Sif", description: "Meaning 'bride' or 'connected to the earth'" },
-  { name: "Tova", description: "Meaning 'beautiful Thor' or 'thunder beauty'" }
-];
-
-const lastNames = [
-  { name: "Ironfoot", description: "One with feet as sturdy as iron, able to traverse any terrain" },
-  { name: "Stoneheart", description: "Possessing a heart as solid as stone, unwavering in duty" },
-  { name: "Oakenshield", description: "Protected by a shield of oak, defender of the forest" },
-  { name: "Hammerfist", description: "With fists as powerful as hammers, a formidable fighter" },
-  { name: "Anvilbreaker", description: "Strong enough to break an anvil, a symbol of immense strength" },
-  { name: "Cragwalker", description: "One who traverses rocky crags with ease" },
-  { name: "Deepdelver", description: "Explorer of the deepest caves and tunnels" },
-  { name: "Firebeard", description: "With a beard as fiery as flame, passionate and bold" },
-  { name: "Goldseeker", description: "One who has a talent for finding gold and treasure" },
-  { name: "Mountainborn", description: "Born in the mountains, at home in high places" },
-  { name: "Stoutaxe", description: "Wielder of a sturdy, reliable axe" },
-  { name: "Thunderbrew", description: "Brewer of powerful drinks that rumble like thunder" },
-  { name: "Wildtracker", description: "Skilled at tracking in the wilderness" },
-  { name: "Boulderbreaker", description: "Strong enough to shatter boulders" },
-  { name: "Cavefinder", description: "Adept at discovering hidden caves and passages" },
-  { name: "Dragonslayer", description: "One who has faced and defeated dragons" },
-  { name: "Earthshaker", description: "Whose steps shake the very earth" },
-  { name: "Forgemaster", description: "Master of the forge and metalworking" },
-  { name: "Gemcutter", description: "Skilled at cutting and polishing precious gems" },
-  { name: "Hillstrider", description: "One who traverses hills and highlands with ease" },
-  { name: "Ironbender", description: "Able to bend iron with bare hands" },
-  { name: "Jewelcrafter", description: "Crafter of fine jewelry and ornaments" },
-  { name: "Keenshot", description: "Accurate with ranged weapons, never missing a target" },
-  { name: "Longbeard", description: "With a notably long beard, a sign of wisdom and experience" },
-  { name: "Mithrilhand", description: "With hands as valuable and skilled as mithril" },
-  { name: "Nightwatcher", description: "One who keeps watch during the night, with excellent night vision" },
-  { name: "Oreseeker", description: "Skilled at finding valuable ore deposits" },
-  { name: "Pathfinder", description: "Discoverer of new paths and routes" },
-  { name: "Quarryminer", description: "Expert at extracting stone from quarries" },
-  { name: "Rockfist", description: "With fists as hard as rock" },
-  { name: "Silverbeard", description: "With a beard that shines like silver, respected elder" },
-  { name: "Tunneldigger", description: "Expert at digging tunnels and underground passages" },
-  { name: "Underhill", description: "One who dwells beneath the hills" },
-  { name: "Valleyguard", description: "Protector of mountain valleys" },
-  { name: "Warhammer", description: "Wielder of a mighty war hammer" },
-  { name: "Axebearer", description: "Carrier of a ceremonial or battle axe" },
-  { name: "Bronzehelm", description: "Wearer of a distinctive bronze helmet" },
-  { name: "Coppermail", description: "Clad in armor of copper links" },
-  { name: "Diamondeye", description: "With eyes that sparkle like diamonds, missing nothing" },
-  { name: "Emberforge", description: "Keeper of a forge that never goes cold" },
-  { name: "Flintfinder", description: "Skilled at finding flint for fire-starting" },
-  { name: "Graniteheart", description: "With a heart as solid as granite, unyielding" },
-  { name: "Heavyboot", description: "With sturdy boots for traversing difficult terrain" },
-  { name: "Irongrip", description: "Possessing a grip as strong as iron" },
-  { name: "Jadehand", description: "With hands skilled at working with jade" },
-  { name: "Kettlehelm", description: "Wearer of a helmet shaped like a kettle" },
-  { name: "Leadfist", description: "With a punch as heavy as lead" },
-  { name: "Marblecarver", description: "Skilled at carving marble into beautiful shapes" },
-  { name: "Nickelbeard", description: "With a beard that has a distinctive metallic sheen" },
-  { name: "Obsidianedge", description: "Maker of weapons with edges as sharp as obsidian" }
-];
+import { 
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Helmet } from "react-helmet";
+import { loadNameData, generateNames, CharacterNameData } from "@/lib/nameUtils";
 
 const DwarfRangerNameGenerator = () => {
   const [gender, setGender] = useState<"male" | "female">("male");
   const [generatedNames, setGeneratedNames] = useState<string[]>([]);
+  const [nameData, setNameData] = useState<CharacterNameData | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [selectedName, setSelectedName] = useState<string | null>(null);
+  const [nameDescription, setNameDescription] = useState<string | null>(null);
 
-  const generateNames = () => {
-    const newNames: string[] = [];
-    const firstNames = gender === "male" ? maleFirstNames : femaleFirstNames;
-    
-    for (let i = 0; i < 10; i++) {
-      const randomFirstNameIndex = Math.floor(Math.random() * firstNames.length);
-      const randomLastNameIndex = Math.floor(Math.random() * lastNames.length);
-      
-      const firstName = firstNames[randomFirstNameIndex].name;
-      const lastName = lastNames[randomLastNameIndex].name;
-      
-      newNames.push(`${firstName} ${lastName}`);
+  // Load name data when component mounts
+  useEffect(() => {
+    async function fetchNameData() {
+      setLoading(true);
+      const data = await loadNameData("fantasy", "dwarf-ranger");
+      setNameData(data as CharacterNameData);
+      setLoading(false);
     }
     
+    fetchNameData();
+  }, []);
+
+  const generateNamesHandler = () => {
+    if (!nameData) return;
+    
+    const newNames = generateNames(nameData, { gender }, 10);
     setGeneratedNames(newNames);
+  };
+
+  const handleNameClick = (name: string) => {
+    if (!nameData) return;
+    
+    setSelectedName(name);
+    
+    // Find description for each part of the name
+    const [firstName, lastName] = name.split(' ');
+    const firstNameEntry = nameData[gender].find(e => e.name === firstName);
+    const lastNameEntry = nameData.lastNames.find(e => e.name === lastName);
+    
+    let description = '';
+    if (firstNameEntry) {
+      description += firstNameEntry.description;
+    }
+    if (firstNameEntry && lastNameEntry) {
+      description += '. ';
+    }
+    if (lastNameEntry) {
+      description += lastNameEntry.description;
+    }
+    
+    setNameDescription(description);
   };
 
   return (
@@ -209,7 +89,7 @@ const DwarfRangerNameGenerator = () => {
             <div className="p-2 sm:p-3 rounded-lg bg-primary/10 text-primary">
               <Wand2 className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
-            <h1 className="font-display text-3xl sm:text-4xl font-bold">Dwarf Ranger Name Generator - 10,000+ Names</h1>
+            <h1 className="font-display text-3xl sm:text-4xl font-bold">Dwarf Ranger Name Generator</h1>
           </div>
           <p className="text-base sm:text-lg text-muted-foreground">Generate the perfect name for your dwarf ranger character.</p>
         </div>
@@ -245,19 +125,38 @@ const DwarfRangerNameGenerator = () => {
               </div>
               
               <Button 
-                onClick={generateNames} 
+                onClick={generateNamesHandler} 
                 className="w-full sm:w-auto"
+                disabled={loading}
                 aria-label="Generate dwarf ranger names"
               >
-                Generate Names
+                {loading ? "Loading..." : "Generate Names"}
               </Button>
               
-              {generatedNames.length > 0 && (
+              {loading && <p>Loading name data...</p>}
+              
+              {!loading && generatedNames.length > 0 && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mt-3 sm:mt-4">
                   {generatedNames.map((name, index) => (
-                    <div key={index} className="p-3 sm:p-4 rounded-md bg-secondary/20 border border-border">
-                      {name}
-                    </div>
+                    <Dialog key={index}>
+                      <DialogTrigger asChild>
+                        <div 
+                          className="p-3 sm:p-4 rounded-md bg-secondary/20 border border-border hover:border-primary cursor-pointer flex justify-between items-center"
+                          onClick={() => handleNameClick(name)}
+                        >
+                          <span>{name}</span>
+                          <Info className="h-4 w-4 text-muted-foreground" />
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent>
+                        <DialogHeader>
+                          <DialogTitle>{selectedName}</DialogTitle>
+                          <DialogDescription>
+                            {nameDescription || "No description available."}
+                          </DialogDescription>
+                        </DialogHeader>
+                      </DialogContent>
+                    </Dialog>
                   ))}
                 </div>
               )}
@@ -396,10 +295,10 @@ const DwarfRangerNameGenerator = () => {
         {/* Popular Names */}
         <section id="popular-names" className="mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Most Popular Dwarf Ranger Names</h2>
-          <p className="mb-4 sm:mb-6">Below is a collection of the most popular dwarf ranger names, each with its own unique significance:</p>
+          <p className="mb-4 sm:mb-6">Below is a collection of the most iconic dwarf ranger names, each with its own meaning:</p>
           
           <div className="mb-6 sm:mb-8 overflow-x-auto">
-            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Male Dwarf Ranger Names</h3>
+            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Male Names</h3>
             <Table>
               <TableHeader>
                 <TableRow>
@@ -408,18 +307,23 @@ const DwarfRangerNameGenerator = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {maleFirstNames.slice(0, 20).map((name, index) => (
+                {!loading && nameData && nameData.male.slice(0, 20).map((name, index) => (
                   <TableRow key={index}>
                     <TableCell className="font-medium">{name.name}</TableCell>
                     <TableCell>{name.description}</TableCell>
                   </TableRow>
                 ))}
+                {loading && (
+                  <TableRow>
+                    <TableCell colSpan={2}>Loading name data...</TableCell>
+                  </TableRow>
+                )}
               </TableBody>
             </Table>
           </div>
           
           <div className="mb-6 sm:mb-8 overflow-x-auto">
-            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Female Dwarf Ranger Names</h3>
+            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Female Names</h3>
             <Table>
               <TableHeader>
                 <TableRow>
@@ -428,18 +332,23 @@ const DwarfRangerNameGenerator = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {femaleFirstNames.slice(0, 20).map((name, index) => (
+                {!loading && nameData && nameData.female.slice(0, 20).map((name, index) => (
                   <TableRow key={index}>
                     <TableCell className="font-medium">{name.name}</TableCell>
                     <TableCell>{name.description}</TableCell>
                   </TableRow>
                 ))}
+                {loading && (
+                  <TableRow>
+                    <TableCell colSpan={2}>Loading name data...</TableCell>
+                  </TableRow>
+                )}
               </TableBody>
             </Table>
           </div>
           
           <div className="overflow-x-auto">
-            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Dwarf Ranger Surnames</h3>
+            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Surnames</h3>
             <Table>
               <TableHeader>
                 <TableRow>
@@ -448,12 +357,17 @@ const DwarfRangerNameGenerator = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {lastNames.slice(0, 20).map((name, index) => (
+                {!loading && nameData && nameData.lastNames.slice(0, 20).map((name, index) => (
                   <TableRow key={index}>
                     <TableCell className="font-medium">{name.name}</TableCell>
                     <TableCell>{name.description}</TableCell>
                   </TableRow>
                 ))}
+                {loading && (
+                  <TableRow>
+                    <TableCell colSpan={2}>Loading name data...</TableCell>
+                  </TableRow>
+                )}
               </TableBody>
             </Table>
           </div>

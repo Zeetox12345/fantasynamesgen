@@ -1,11 +1,20 @@
-import { useState } from "react";
-import { Wand2 } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Wand2, Info } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Toggle } from "@/components/ui/toggle";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { 
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Helmet } from "react-helmet";
+import { loadNameData, generateNames, CharacterNameData } from "@/lib/nameUtils";
 
 // Elven Ranger name data
 const maleFirstNames = [
@@ -169,22 +178,52 @@ const lastNames = [
 const ElvenRangerNameGenerator = () => {
   const [gender, setGender] = useState<"male" | "female">("male");
   const [generatedNames, setGeneratedNames] = useState<string[]>([]);
+  const [nameData, setNameData] = useState<CharacterNameData | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [selectedName, setSelectedName] = useState<string | null>(null);
+  const [nameDescription, setNameDescription] = useState<string | null>(null);
 
-  const generateNames = () => {
-    const newNames: string[] = [];
-    const firstNames = gender === "male" ? maleFirstNames : femaleFirstNames;
-    
-    for (let i = 0; i < 10; i++) {
-      const randomFirstNameIndex = Math.floor(Math.random() * firstNames.length);
-      const randomLastNameIndex = Math.floor(Math.random() * lastNames.length);
-      
-      const firstName = firstNames[randomFirstNameIndex].name;
-      const lastName = lastNames[randomLastNameIndex].name;
-      
-      newNames.push(`${firstName} ${lastName}`);
+  // Load name data when component mounts
+  useEffect(() => {
+    async function fetchNameData() {
+      setLoading(true);
+      const data = await loadNameData("fantasy", "elven-ranger");
+      setNameData(data as CharacterNameData);
+      setLoading(false);
     }
     
+    fetchNameData();
+  }, []);
+
+  const generateNamesHandler = () => {
+    if (!nameData) return;
+    
+    const newNames = generateNames(nameData, { gender }, 10);
     setGeneratedNames(newNames);
+  };
+
+  const handleNameClick = (name: string) => {
+    if (!nameData) return;
+    
+    setSelectedName(name);
+    
+    // Find description for each part of the name
+    const [firstName, lastName] = name.split(' ');
+    const firstNameEntry = nameData[gender].find(e => e.name === firstName);
+    const lastNameEntry = nameData.lastNames.find(e => e.name === lastName);
+    
+    let description = '';
+    if (firstNameEntry) {
+      description += firstNameEntry.description;
+    }
+    if (firstNameEntry && lastNameEntry) {
+      description += '. ';
+    }
+    if (lastNameEntry) {
+      description += lastNameEntry.description;
+    }
+    
+    setNameDescription(description);
   };
 
   return (
@@ -209,7 +248,7 @@ const ElvenRangerNameGenerator = () => {
             <div className="p-2 sm:p-3 rounded-lg bg-primary/10 text-primary">
               <Wand2 className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
-            <h1 className="font-display text-3xl sm:text-4xl font-bold">Elven Ranger Name Generator - 10,000+ Names</h1>
+            <h1 className="font-display text-3xl sm:text-4xl font-bold">Elven Ranger Name Generator</h1>
           </div>
           <p className="text-base sm:text-lg text-muted-foreground">Generate the perfect name for your elven ranger character.</p>
         </div>
@@ -245,19 +284,38 @@ const ElvenRangerNameGenerator = () => {
               </div>
               
               <Button 
-                onClick={generateNames} 
+                onClick={generateNamesHandler} 
                 className="w-full sm:w-auto"
+                disabled={loading}
                 aria-label="Generate elven ranger names"
               >
-                Generate Names
+                {loading ? "Loading..." : "Generate Names"}
               </Button>
               
-              {generatedNames.length > 0 && (
+              {loading && <p>Loading name data...</p>}
+              
+              {!loading && generatedNames.length > 0 && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mt-3 sm:mt-4">
                   {generatedNames.map((name, index) => (
-                    <div key={index} className="p-3 sm:p-4 rounded-md bg-secondary/20 border border-border">
-                      {name}
-                    </div>
+                    <Dialog key={index}>
+                      <DialogTrigger asChild>
+                        <div 
+                          className="p-3 sm:p-4 rounded-md bg-secondary/20 border border-border hover:border-primary cursor-pointer flex justify-between items-center"
+                          onClick={() => handleNameClick(name)}
+                        >
+                          <span>{name}</span>
+                          <Info className="h-4 w-4 text-muted-foreground" />
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent>
+                        <DialogHeader>
+                          <DialogTitle>{selectedName}</DialogTitle>
+                          <DialogDescription>
+                            {nameDescription || "No description available."}
+                          </DialogDescription>
+                        </DialogHeader>
+                      </DialogContent>
+                    </Dialog>
                   ))}
                 </div>
               )}

@@ -1,128 +1,67 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { Wand2 } from "lucide-react";
+import { Wand2, Building2, Map } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { loadNameData, generateNames, LocationNameData } from "@/lib/nameUtils";
 
-// Chaos Dwarf City name data
-const prefixes = [
-  { name: "Zharr", description: "Meaning 'fire' or 'burning', representing the chaos dwarfs' affinity for fire" },
-  { name: "Gorgoth", description: "Meaning 'iron fortress', symbolizing their impenetrable strongholds" },
-  { name: "Uzkulak", description: "Meaning 'place of skulls', reflecting their dark practices" },
-  { name: "Drazh", description: "Meaning 'forge' or 'anvil', central to their industry" },
-  { name: "Ghorth", description: "Meaning 'molten', referring to their volcanic territories" },
-  { name: "Karak", description: "Meaning 'fortress' or 'citadel', a term corrupted from their ancestors" },
-  { name: "Mingol", description: "Meaning 'dark tower', representing their imposing architecture" },
-  { name: "Azgorh", description: "Meaning 'fire mountain', referring to their volcanic homes" },
-  { name: "Dûm", description: "Meaning 'doom' or 'fate', reflecting their fatalistic outlook" },
-  { name: "Vrag", description: "Meaning 'enemy' or 'foe', showing their hostile nature" },
-  { name: "Hashut", description: "Named after their dark god, the Father of Darkness" },
-  { name: "Barak", description: "Meaning 'black' or 'darkness', reflecting their corrupted nature" },
-  { name: "Grim", description: "Meaning 'fierce' or 'cruel', describing their temperament" },
-  { name: "Drazhoath", description: "Meaning 'forge of oaths', where dark pacts are made" },
-  { name: "Uzkul", description: "Meaning 'skull place', where trophies are displayed" },
-  { name: "Mordak", description: "Meaning 'death hold', a place of execution and torment" },
-  { name: "Zhufbar", description: "Meaning 'fire gate', entrance to their realm" },
-  { name: "Ghaz", description: "Meaning 'smoke' or 'ash', from their industrial furnaces" },
-  { name: "Naggrund", description: "Meaning 'black hammer', symbol of their craftsmanship" },
-  { name: "Vorag", description: "Meaning 'blood' or 'gore', reflecting their violent nature" },
-  { name: "Thrangrim", description: "Meaning 'iron beard', a title of respect among chaos dwarfs" },
-  { name: "Kazad", description: "Meaning 'hold' or 'fortress', corrupted from ancestral dwarf language" },
-  { name: "Borg", description: "Meaning 'citadel' or 'stronghold', their defensive structures" },
-  { name: "Dorn", description: "Meaning 'thorn' or 'spike', reflecting their aggressive architecture" },
-  { name: "Gron", description: "Meaning 'grind' or 'crush', their industrial might" }
-];
-
-const suffixes = [
-  { name: "Naggrund", description: "Meaning 'black hammer', symbol of their craftsmanship" },
-  { name: "Kadrin", description: "Meaning 'pass' or 'gateway', often controlling mountain passages" },
-  { name: "Drazh", description: "Meaning 'forge', where their dark creations are made" },
-  { name: "Varr", description: "Meaning 'river of fire', referring to lava flows near their cities" },
-  { name: "Ghaz", description: "Meaning 'smoke' or 'ash', from their industrial furnaces" },
-  { name: "Kul", description: "Meaning 'pit' or 'mine', where slaves toil endlessly" },
-  { name: "Baraz", description: "Meaning 'fire' or 'flame', central to their worship" },
-  { name: "Tharin", description: "Meaning 'hall' or 'chamber', their grand meeting places" },
-  { name: "Dum", description: "Meaning 'doom' or 'fate', their fatalistic philosophy" },
-  { name: "Uzkul", description: "Meaning 'skull place', decorated with the remains of enemies" },
-  { name: "Grim", description: "Meaning 'fierce' or 'cruel', describing their nature" },
-  { name: "Vrag", description: "Meaning 'enemy' or 'foe', their hostile stance toward others" },
-  { name: "Kazad", description: "Meaning 'hold' or 'fortress', their defensive structures" },
-  { name: "Norn", description: "Meaning 'vengeance' or 'grudge', their long memory for slights" },
-  { name: "Thar", description: "Meaning 'dark' or 'shadow', their preference for darkness" },
-  { name: "Gorl", description: "Meaning 'gore' or 'blood', their violent practices" },
-  { name: "Zorn", description: "Meaning 'wrath' or 'anger', their temperament" },
-  { name: "Barak", description: "Meaning 'black' or 'darkness', their corrupted nature" },
-  { name: "Morr", description: "Meaning 'death' or 'end', their association with mortality" },
-  { name: "Zhul", description: "Meaning 'slave' or 'servant', their reliance on slave labor" },
-  { name: "Krag", description: "Meaning 'crag' or 'cliff', their mountainous homes" },
-  { name: "Dor", description: "Meaning 'gate' or 'door', entrances to their underground realms" },
-  { name: "Ghor", description: "Meaning 'molten' or 'burning', their volcanic territories" },
-  { name: "Ungol", description: "Meaning 'spider' or 'web', their tangled politics" },
-  { name: "Rakath", description: "Meaning 'ruin' or 'destruction', what they bring to enemies" }
-];
-
-const modifiers = [
-  { name: "The Black", description: "Referring to the soot and ash that covers their cities" },
-  { name: "The Burning", description: "Referring to the constant fires of their forges" },
-  { name: "The Damned", description: "Referring to their corrupted state" },
-  { name: "The Infernal", description: "Referring to their hellish environment" },
-  { name: "The Ashen", description: "Referring to the volcanic ash that covers their realm" },
-  { name: "The Molten", description: "Referring to the lava flows near their cities" },
-  { name: "The Cruel", description: "Referring to their treatment of slaves" },
-  { name: "The Dark", description: "Referring to their evil nature" },
-  { name: "The Smoking", description: "Referring to the constant industrial smoke" },
-  { name: "The Fiery", description: "Referring to their worship of fire" },
-  { name: "The Obsidian", description: "Referring to the black volcanic glass used in construction" },
-  { name: "The Iron", description: "Referring to their metalworking skills" },
-  { name: "The Brass", description: "Referring to their use of this metal in dark rituals" },
-  { name: "The Shadowed", description: "Referring to the perpetual darkness of their realm" },
-  { name: "The Blighted", description: "Referring to the corrupted landscape around them" },
-  { name: "The Cursed", description: "Referring to their fall from grace" },
-  { name: "The Endless", description: "Referring to their seemingly endless caverns and mines" },
-  { name: "The Forsaken", description: "Referring to their abandonment of ancestral ways" },
-  { name: "The Smoldering", description: "Referring to the ever-burning embers of their forges" },
-  { name: "The Ruinous", description: "Referring to their allegiance to chaos" }
-];
+// REMOVE hardcoded arrays
+// const prefixes = [ ... ];
+// const suffixes = [ ... ];
+// const modifiers = [ ... ];
 
 const ChaosDwarfCityNameGenerator = () => {
   const [generatedNames, setGeneratedNames] = useState<string[]>([]);
+  const [nameData, setNameData] = useState<LocationNameData | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [activeTab, setActiveTab] = useState<"cityNames" | "districtNames" | "landmarkNames">("cityNames");
 
-  const generateNames = () => {
-    const newNames: string[] = [];
-    
-    // Generate 10 unique city names
-    for (let i = 0; i < 10; i++) {
-      // Decide on name structure (50% chance for prefix+suffix, 50% chance for prefix+suffix with modifier)
-      const useModifier = Math.random() > 0.5;
-      
-      const randomPrefixIndex = Math.floor(Math.random() * prefixes.length);
-      const randomSuffixIndex = Math.floor(Math.random() * suffixes.length);
-      const randomModifierIndex = Math.floor(Math.random() * modifiers.length);
-      
-      const prefix = prefixes[randomPrefixIndex].name;
-      const suffix = suffixes[randomSuffixIndex].name;
-      
-      let cityName = `${prefix}-${suffix}`;
-      
-      if (useModifier) {
-        const modifier = modifiers[randomModifierIndex].name;
-        cityName = `${cityName}, ${modifier}`;
-      }
-      
-      newNames.push(cityName);
+  // Load name data when component mounts
+  useEffect(() => {
+    async function fetchNameData() {
+      setLoading(true);
+      const data = await loadNameData("fantasy", "chaos-dwarf-city");
+      setNameData(data as LocationNameData);
+      setLoading(false);
     }
     
+    fetchNameData();
+  }, []);
+
+  const generateNamesHandler = () => {
+    if (!nameData) return;
+    
+    const newNames = generateNames(nameData, { nameType: activeTab }, 10);
     setGeneratedNames(newNames);
+  };
+
+  const getTabIcon = (tab: string) => {
+    switch (tab) {
+      case "cityNames": return <Building2 className="h-4 w-4 mr-2" />;
+      case "districtNames": return <Map className="h-4 w-4 mr-2" />;
+      case "landmarkNames": return <Wand2 className="h-4 w-4 mr-2" />;
+      default: return <Building2 className="h-4 w-4 mr-2" />;
+    }
+  };
+
+  const getTabTitle = (tab: string) => {
+    switch (tab) {
+      case "cityNames": return "Chaos Dwarf Cities";
+      case "districtNames": return "Districts";
+      case "landmarkNames": return "Landmarks";
+      default: return "Names";
+    }
   };
 
   return (
     <div className="min-h-screen py-8 px-4 sm:py-12 sm:px-6">
       <Helmet>
         <title>Chaos Dwarf City Name Generator - 10,000+ Names | FantasyNamesGen</title>
-        <meta name="description" content="Generate dark and imposing names for chaos dwarf cities and strongholds. Over 10,000 unique name combinations available." />
-        <meta name="keywords" content="chaos dwarf, city names, fantasy names, name generator, warhammer, fantasy, stronghold names" />
+        <meta name="description" content="Generate names for Chaos Dwarf cities, districts, and landmarks. Over 10,000 unique name combinations available." />
+        <meta name="keywords" content="chaos dwarf, warhammer, fantasy names, city names, name generator" />
       </Helmet>
       <div className="max-w-7xl mx-auto">
         {/* Header with back button */}
@@ -137,39 +76,102 @@ const ChaosDwarfCityNameGenerator = () => {
           
           <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
             <div className="p-2 sm:p-3 rounded-lg bg-primary/10 text-primary">
-              <Wand2 className="w-5 h-5 sm:w-6 sm:h-6" />
+              <Building2 className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
-            <h1 className="font-display text-3xl sm:text-4xl font-bold">Chaos Dwarf City Name Generator - 10,000+ Names</h1>
+            <h1 className="font-display text-3xl sm:text-4xl font-bold">Chaos Dwarf City Name Generator</h1>
           </div>
-          <p className="text-base sm:text-lg text-muted-foreground">Generate dark and imposing names for chaos dwarf cities and strongholds.</p>
+          <p className="text-base sm:text-lg text-muted-foreground">Generate dark and imposing names for Chaos Dwarf settlements, districts, and landmarks.</p>
         </div>
 
         {/* Generator Card */}
         <Card className="glass-card mb-6 sm:mb-8">
           <CardHeader className="pb-3 sm:pb-4">
-            <CardTitle className="text-xl sm:text-2xl">Generate Chaos Dwarf City Names</CardTitle>
-            <CardDescription>Create unique names for chaos dwarf cities, fortresses, and strongholds</CardDescription>
+            <CardTitle className="text-xl sm:text-2xl">Generate Chaos Dwarf Location Names</CardTitle>
+            <CardDescription>
+              Select what to generate and click the button
+            </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="flex flex-col gap-4 sm:gap-6">
-              <Button 
-                onClick={generateNames} 
-                className="w-full sm:w-auto"
-                aria-label="Generate chaos dwarf city names"
-              >
-                Generate Names
-              </Button>
-              
-              {generatedNames.length > 0 && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mt-3 sm:mt-4">
-                  {generatedNames.map((name, index) => (
-                    <div key={index} className="p-3 sm:p-4 rounded-md bg-secondary/20 border border-border">
-                      {name}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+            <Tabs 
+              defaultValue="cityNames" 
+              value={activeTab} 
+              onValueChange={(v) => setActiveTab(v as any)}
+              className="mb-4"
+            >
+              <TabsList className="grid grid-cols-3">
+                <TabsTrigger value="cityNames">
+                  <Building2 className="h-4 w-4 mr-2" />
+                  Cities
+                </TabsTrigger>
+                <TabsTrigger value="districtNames">
+                  <Map className="h-4 w-4 mr-2" />
+                  Districts
+                </TabsTrigger>
+                <TabsTrigger value="landmarkNames">
+                  <Wand2 className="h-4 w-4 mr-2" />
+                  Landmarks
+                </TabsTrigger>
+              </TabsList>
+            </Tabs>
+            
+            <Button onClick={generateNamesHandler} disabled={loading} className="w-full mb-4">
+              {getTabIcon(activeTab)}
+              Generate {getTabTitle(activeTab)}
+            </Button>
+            
+            {loading && <p>Loading name data...</p>}
+            
+            {!loading && generatedNames.length > 0 && (
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Name</TableHead>
+                    <TableHead>Description</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {generatedNames.map((name, index) => {
+                    // Find description of the name
+                    const nameList = nameData?.[activeTab as keyof LocationNameData] as any[];
+                    const entry = nameList?.find(e => e.name === name);
+                    
+                    return (
+                      <TableRow key={index}>
+                        <TableCell className="font-medium">{name}</TableCell>
+                        <TableCell>{entry?.description}</TableCell>
+                      </TableRow>
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            )}
+            
+            {!loading && generatedNames.length === 0 && (
+              <div className="text-center p-6 text-muted-foreground">
+                Click "Generate" to create {getTabTitle(activeTab).toLowerCase()}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+        
+        {/* Information Section */}
+        <Card className="glass-card">
+          <CardHeader>
+            <CardTitle className="text-xl sm:text-2xl">About Chaos Dwarf Locations</CardTitle>
+          </CardHeader>
+          <CardContent className="prose dark:prose-invert max-w-none">
+            <p>
+              Chaos Dwarf settlements are dark, imposing places built on slavery, industry and the worship of dark gods. Their architecture features harsh angles, black stone, and decorative elements that inspire terror.
+            </p>
+            <p>
+              The major city of the Chaos Dwarfs is <strong>Zharr-Naggrund</strong>, the Great Black Fortress. This terrifying ziggurat-city rises like a black mountain from the volcanic Plain of Zharrduk.
+            </p>
+            <p>
+              Districts within chaos dwarf cities are typically organized around specific industrial functions or social hierarchies, while landmarks often honor their dark gods or commemorate violent conquests.
+            </p>
+            <p>
+              Use these names for your dark fantasy worldbuilding, Warhammer campaigns, or other roleplaying games that feature evil dwarven civilizations.
+            </p>
           </CardContent>
         </Card>
 
@@ -318,7 +320,7 @@ const ChaosDwarfCityNameGenerator = () => {
           <p className="mb-4 sm:mb-6">Below is a collection of the most iconic chaos dwarf city names, each with its own dark significance:</p>
           
           <div className="mb-6 sm:mb-8 overflow-x-auto">
-            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Prefixes</h3>
+            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Common Name Elements</h3>
             <Table>
               <TableHeader>
                 <TableRow>
@@ -327,18 +329,23 @@ const ChaosDwarfCityNameGenerator = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {prefixes.slice(0, 20).map((prefix, index) => (
+                {!loading && nameData && nameData.cityNames.slice(0, 20).map((element, index) => (
                   <TableRow key={index}>
-                    <TableCell className="font-medium">{prefix.name}</TableCell>
-                    <TableCell>{prefix.description}</TableCell>
+                    <TableCell className="font-medium">{element.name}</TableCell>
+                    <TableCell>{element.description}</TableCell>
                   </TableRow>
                 ))}
+                {loading && (
+                  <TableRow>
+                    <TableCell colSpan={2}>Loading name data...</TableCell>
+                  </TableRow>
+                )}
               </TableBody>
             </Table>
           </div>
           
           <div className="mb-6 sm:mb-8 overflow-x-auto">
-            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Suffixes</h3>
+            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">District Names</h3>
             <Table>
               <TableHeader>
                 <TableRow>
@@ -347,18 +354,23 @@ const ChaosDwarfCityNameGenerator = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {suffixes.slice(0, 20).map((suffix, index) => (
+                {!loading && nameData && nameData.districtNames.slice(0, 20).map((element, index) => (
                   <TableRow key={index}>
-                    <TableCell className="font-medium">{suffix.name}</TableCell>
-                    <TableCell>{suffix.description}</TableCell>
+                    <TableCell className="font-medium">{element.name}</TableCell>
+                    <TableCell>{element.description}</TableCell>
                   </TableRow>
                 ))}
+                {loading && (
+                  <TableRow>
+                    <TableCell colSpan={2}>Loading name data...</TableCell>
+                  </TableRow>
+                )}
               </TableBody>
             </Table>
           </div>
           
           <div className="overflow-x-auto">
-            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Modifiers</h3>
+            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Landmark Names</h3>
             <Table>
               <TableHeader>
                 <TableRow>
@@ -367,12 +379,17 @@ const ChaosDwarfCityNameGenerator = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {modifiers.slice(0, 20).map((modifier, index) => (
+                {!loading && nameData && nameData.landmarkNames.slice(0, 20).map((element, index) => (
                   <TableRow key={index}>
-                    <TableCell className="font-medium">{modifier.name}</TableCell>
-                    <TableCell>{modifier.description}</TableCell>
+                    <TableCell className="font-medium">{element.name}</TableCell>
+                    <TableCell>{element.description}</TableCell>
                   </TableRow>
                 ))}
+                {loading && (
+                  <TableRow>
+                    <TableCell colSpan={2}>Loading name data...</TableCell>
+                  </TableRow>
+                )}
               </TableBody>
             </Table>
           </div>
