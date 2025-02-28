@@ -52,9 +52,49 @@ export function isLocationNameData(data: NameData): data is LocationNameData {
 export async function loadNameData(category: string, generator: string): Promise<NameData> {
   console.log(`Attempting to load name data for ${category}/${generator}`);
   try {
-    const path = `../data/${category}/${generator}.json`;
-    console.log(`Import path: ${path}`);
-    const data = await import(path);
+    // Use a more reliable approach for importing data files
+    let data;
+    
+    // Handle fantasy category data files
+    if (category === 'fantasy') {
+      switch (generator) {
+        case 'space-ranger':
+          data = await import('@/data/fantasy/space-ranger.json');
+          break;
+        case 'dwarf-ranger':
+          data = await import('@/data/fantasy/dwarf-ranger.json');
+          break;
+        case 'elven-ranger':
+          data = await import('@/data/fantasy/elven-ranger.json');
+          break;
+        case 'halfling-ranger':
+          data = await import('@/data/fantasy/halfling-ranger.json');
+          break;
+        case 'chaos-dwarf-city':
+          data = await import('@/data/fantasy/chaos-dwarf-city.json');
+          break;
+        case 'merfolk-city':
+          data = await import('@/data/fantasy/merfolk-city.json');
+          break;
+        case 'sea-god':
+          data = await import('@/data/fantasy/sea-god.json');
+          break;
+        case 'reindeer':
+          data = await import('@/data/fantasy/reindeer.json');
+          break;
+        case 'female-demon':
+          data = await import('@/data/fantasy/female-demon.json');
+          break;
+        case 'male-demon':
+          data = await import('@/data/fantasy/male-demon.json');
+          break;
+        default:
+          throw new Error(`Unknown generator: ${generator}`);
+      }
+    } else {
+      throw new Error(`Unknown category: ${category}`);
+    }
+    
     console.log(`Successfully loaded data for ${category}/${generator}:`, data);
     return data;
   } catch (error) {

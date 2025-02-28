@@ -14,7 +14,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Helmet } from "react-helmet";
-import { loadNameData, generateNames, CharacterNameData } from "@/lib/nameUtils";
+import { loadNameData, generateNames, CharacterNameData, isCharacterNameData } from "@/lib/nameUtils";
 import { GeneratorImage } from "@/components/GeneratorImage";
 
 // Space Ranger name data
@@ -182,6 +182,7 @@ const SpaceRangerNameGenerator = () => {
   const [generatedNames, setGeneratedNames] = useState<string[]>([]);
   const [nameData, setNameData] = useState<CharacterNameData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
   const [selectedName, setSelectedName] = useState<string | null>(null);
   const [nameDescription, setNameDescription] = useState<string | null>(null);
 
@@ -189,19 +190,55 @@ const SpaceRangerNameGenerator = () => {
   useEffect(() => {
     async function fetchNameData() {
       setLoading(true);
-      const data = await loadNameData("fantasy", "space-ranger");
-      setNameData(data as CharacterNameData);
-      setLoading(false);
+      setError(null);
+      try {
+        const data = await loadNameData("fantasy", "space-ranger");
+        
+        // Validate that we have the expected data structure
+        if (!isCharacterNameData(data)) {
+          console.error("Invalid data structure received:", data);
+          setError("Failed to load name data. The data structure is invalid.");
+          setLoading(false);
+          return;
+        }
+        
+        if (!data.male?.length || !data.female?.length || !data.lastNames?.length) {
+          console.error("Incomplete data structure received:", data);
+          setError("Failed to load name data. The data structure is incomplete.");
+          setLoading(false);
+          return;
+        }
+        
+        setNameData(data);
+        setLoading(false);
+      } catch (err) {
+        console.error("Error loading name data:", err);
+        setError("Failed to load name data. Please try refreshing the page.");
+        setLoading(false);
+      }
     }
     
     fetchNameData();
   }, []);
 
   const generateNamesHandler = () => {
-    if (!nameData) return;
+    if (!nameData) {
+      setError("Name data is not available. Please try refreshing the page.");
+      return;
+    }
     
-    const newNames = generateNames(nameData, { gender }, 10);
-    setGeneratedNames(newNames);
+    try {
+      const newNames = generateNames(nameData, { gender }, 10);
+      if (newNames.length === 0) {
+        setError("Failed to generate names. Please try again.");
+        return;
+      }
+      setGeneratedNames(newNames);
+      setError(null);
+    } catch (err) {
+      console.error("Error generating names:", err);
+      setError("An error occurred while generating names. Please try again.");
+    }
   };
 
   const handleNameClick = (name: string) => {
@@ -255,6 +292,16 @@ const SpaceRangerNameGenerator = () => {
           </div>
           <p className="text-base sm:text-lg text-muted-foreground">Generate the perfect name for your space ranger character.</p>
         </div>
+
+        {/* Error message */}
+        {error && (
+          <div className="mb-6 p-4 border border-red-200 bg-red-50 text-red-700 rounded-md">
+            <p className="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 mr-2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              {error}
+            </p>
+          </div>
+        )}
 
         {/* Generator Card */}
         <Card className="glass-card mb-6 sm:mb-8">
