@@ -13,6 +13,11 @@ import DwarfRangerNameGenerator from "./pages/fantasy/dwarf-ranger";
 import ElvenRangerNameGenerator from "./pages/fantasy/elven-ranger";
 import HalflingRangerNameGenerator from "./pages/fantasy/halfling-ranger";
 import ChaosDwarfCityNameGenerator from "./pages/fantasy/chaos-dwarf-city";
+import MerfolkCityGenerator from "./pages/fantasy/merfolk-city";
+import SeaGodGenerator from "./pages/fantasy/sea-god";
+import ReindeerGenerator from "./pages/fantasy/reindeer";
+import FemaleDemonGenerator from "./pages/fantasy/female-demon";
+import MaleDemonGenerator from "./pages/fantasy/male-demon";
 
 /* HIDDEN ROUTES - TO RESTORE ALL ROUTES:
  * 1. Delete this comment block
@@ -87,6 +92,11 @@ const App = () => (
           <Route path="/fantasy/elven-ranger" element={<ElvenRangerNameGenerator />} />
           <Route path="/fantasy/halfling-ranger" element={<HalflingRangerNameGenerator />} />
           <Route path="/fantasy/chaos-dwarf-city" element={<ChaosDwarfCityNameGenerator />} />
+          <Route path="/fantasy/merfolk-city" element={<MerfolkCityGenerator />} />
+          <Route path="/fantasy/sea-god" element={<SeaGodGenerator />} />
+          <Route path="/fantasy/reindeer" element={<ReindeerGenerator />} />
+          <Route path="/fantasy/female-demon" element={<FemaleDemonGenerator />} />
+          <Route path="/fantasy/male-demon" element={<MaleDemonGenerator />} />
           {/* HIDDEN ROUTES - Uncomment to restore
           <Route path="/splatoon" element={<Splatoon />} />
           <Route path="/dnd" element={<DungeonsAndDragons />} />

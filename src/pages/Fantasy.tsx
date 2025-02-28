@@ -33,13 +33,43 @@ const Fantasy = () => {
       description: "Generate dark and imposing names for chaos dwarf settlements",
       href: "/fantasy/chaos-dwarf-city",
       image: "/images/categories/fantasy/chaos-dwarf-city/chaos-dwarf-city-main.jpg"
+    },
+    {
+      title: "Merfolk City Names",
+      description: "Generate mystical underwater city names for merfolk civilizations",
+      href: "/fantasy/merfolk-city",
+      image: "/images/categories/fantasy/merfolk-city/merfolk-city-main.jpg"
+    },
+    {
+      title: "Sea God Names",
+      description: "Create powerful and majestic names for gods and deities of the oceans",
+      href: "/fantasy/sea-god",
+      image: "/images/categories/fantasy/sea-god/sea-god-main.jpg"
+    },
+    {
+      title: "Reindeer Names",
+      description: "Generate magical and enchanting names for fantasy reindeers",
+      href: "/fantasy/reindeer",
+      image: "/images/categories/fantasy/reindeer/reindeer-main.jpg"
+    },
+    {
+      title: "Female Demon Names",
+      description: "Create dark and powerful names for female demons from fantasy realms",
+      href: "/fantasy/female-demon",
+      image: "/images/categories/fantasy/female-demon/female-demon-main.jpg"
+    },
+    {
+      title: "Male Demon Names",
+      description: "Generate intimidating and dark names for male demons from the abyss",
+      href: "/fantasy/male-demon",
+      image: "/images/categories/fantasy/male-demon/male-demon-main.jpg"
     }
   ];
 
   return (
     <CategoryLayout
       title="Fantasy"
-      description="Generate names for rangers of different races and chaos dwarf cities from enchanted realms"
+      description="Generate names for rangers, mythical creatures, demons, gods, and magical places from enchanted realms"
       icon={<Wand2 className="w-6 h-6" />}
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

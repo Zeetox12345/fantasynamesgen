@@ -17,6 +17,11 @@ export interface LocationNameData {
   districtNames?: NameEntry[];
   landmarkNames?: NameEntry[];
   regionNames?: NameEntry[];
+  // Adding male and female properties to support the merfolk city generator
+  male?: NameEntry[];
+  female?: NameEntry[];
+  // Adding reindeerNames to support the reindeer generator
+  reindeerNames?: NameEntry[];
   // Other possible categories can be added as needed
 }
 
@@ -45,8 +50,13 @@ export function isLocationNameData(data: NameData): data is LocationNameData {
  * @returns Promise with the loaded name data
  */
 export async function loadNameData(category: string, generator: string): Promise<NameData> {
+  console.log(`Attempting to load name data for ${category}/${generator}`);
   try {
-    return await import(`../data/${category}/${generator}.json`);
+    const path = `../data/${category}/${generator}.json`;
+    console.log(`Import path: ${path}`);
+    const data = await import(path);
+    console.log(`Successfully loaded data for ${category}/${generator}:`, data);
+    return data;
   } catch (error) {
     console.error(`Failed to load name data for ${category}/${generator}:`, error);
     // Return empty data structure in case of error
@@ -71,24 +81,34 @@ export function generateCharacterNames(
   gender: 'male' | 'female', 
   count: number
 ): string[] {
+  console.log(`generateCharacterNames for gender: ${gender}, count: ${count}`);
   const names: string[] = [];
   const firstNames = gender === 'male' ? nameData.male : nameData.female;
   
+  console.log(`First names available: ${firstNames?.length || 0}`);
+  console.log(`Last names available: ${nameData.lastNames?.length || 0}`);
+  
   // Return empty array if no names available
-  if (firstNames.length === 0 || nameData.lastNames.length === 0) {
+  if (!firstNames?.length || !nameData.lastNames?.length) {
+    console.log("Missing first names or last names, returning empty array");
     return names;
   }
 
-  for (let i = 0; i < count; i++) {
-    const randomFirstNameIndex = Math.floor(Math.random() * firstNames.length);
-    const randomLastNameIndex = Math.floor(Math.random() * nameData.lastNames.length);
-    
-    const firstName = firstNames[randomFirstNameIndex].name;
-    const lastName = nameData.lastNames[randomLastNameIndex].name;
-    
-    names.push(`${firstName} ${lastName}`);
+  try {
+    for (let i = 0; i < count; i++) {
+      const randomFirstNameIndex = Math.floor(Math.random() * firstNames.length);
+      const randomLastNameIndex = Math.floor(Math.random() * nameData.lastNames.length);
+      
+      const firstName = firstNames[randomFirstNameIndex].name;
+      const lastName = nameData.lastNames[randomLastNameIndex].name;
+      
+      names.push(`${firstName} ${lastName}`);
+    }
+  } catch (error) {
+    console.error(`Error generating character names for ${gender}:`, error);
   }
   
+  console.log(`Generated ${names.length} character names`);
   return names;
 }
 
@@ -105,18 +125,27 @@ export function generateLocationNames(
   nameType: keyof LocationNameData,
   count: number
 ): string[] {
+  console.log(`generateLocationNames for type: ${nameType}, count: ${count}`);
   const names: string[] = [];
   const nameList = nameData[nameType] as NameEntry[] | undefined;
   
+  console.log(`Names available for ${nameType}: ${nameList?.length || 0}`);
+  
   if (!nameList || nameList.length === 0) {
+    console.log(`No names available for type ${nameType}, returning empty array`);
     return names;
   }
   
-  for (let i = 0; i < count; i++) {
-    const randomIndex = Math.floor(Math.random() * nameList.length);
-    names.push(nameList[randomIndex].name);
+  try {
+    for (let i = 0; i < count; i++) {
+      const randomIndex = Math.floor(Math.random() * nameList.length);
+      names.push(nameList[randomIndex].name);
+    }
+  } catch (error) {
+    console.error(`Error generating location names for ${nameType}:`, error);
   }
   
+  console.log(`Generated ${names.length} location names`);
   return names;
 }
 
@@ -133,12 +162,26 @@ export function generateNames(
   options: { gender?: 'male' | 'female', nameType?: string },
   count: number
 ): string[] {
-  if (isCharacterNameData(nameData) && options.gender) {
-    return generateCharacterNames(nameData, options.gender, count);
-  } else if (isLocationNameData(nameData) && options.nameType) {
-    return generateLocationNames(nameData, options.nameType as keyof LocationNameData, count);
+  console.log("generateNames called with:", { nameData, options, count });
+  
+  try {
+    if (isCharacterNameData(nameData) && options.gender) {
+      console.log(`Generating character names for gender: ${options.gender}`);
+      return generateCharacterNames(nameData, options.gender, count);
+    } else if (isLocationNameData(nameData) && options.nameType) {
+      console.log(`Generating location names for type: ${options.nameType}`);
+      // For merfolk city, we're using male/female as the nameType
+      // This is a special case to handle the merfolk city data structure
+      // We need to cast the nameType to keyof LocationNameData to satisfy TypeScript
+      return generateLocationNames(nameData, options.nameType as keyof LocationNameData, count);
+    }
+    
+    console.log("Couldn't determine what type of names to generate");
+    return [];
+  } catch (error) {
+    console.error("Error generating names:", error);
+    return [];
   }
-  return [];
 }
 
 /**
