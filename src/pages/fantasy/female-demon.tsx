@@ -71,8 +71,8 @@ const FemaleDemonGenerator = () => {
   return (
     <div className="min-h-screen py-8 px-4 sm:py-12 sm:px-6">
       <Helmet>
-        <title>Female Demon Name Generator - Dark Fantasy Names | FantasyNamesGen</title>
-        <meta name="description" content="Generate dark and powerful names for female demons from fantasy realms. Create sinister characters for your stories and games." />
+        <title>Female Demon Name Generator - 10,000+ Dark Fantasy Names | FantasyNamesGen</title>
+        <meta name="description" content="Generate 10,000+ dark and powerful names for female demons from fantasy realms. Our name generator creates sinister characters for your stories, games, and worldbuilding projects." />
         <meta name="keywords" content="female demon names, demoness, dark fantasy, evil names, fantasy villain, name generator, occult names, fantasy character" />
       </Helmet>
       <div className="max-w-7xl mx-auto">

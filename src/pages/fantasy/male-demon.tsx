@@ -71,8 +71,8 @@ const MaleDemonGenerator = () => {
   return (
     <div className="min-h-screen py-8 px-4 sm:py-12 sm:px-6">
       <Helmet>
-        <title>Male Demon Name Generator - Dark Fantasy Names | FantasyNamesGen</title>
-        <meta name="description" content="Generate intimidating and dark names for male demons from the abyss. Create powerful antagonists for your fantasy stories and games." />
+        <title>Male Demon Name Generator - 10,000+ Dark Fantasy Names | FantasyNamesGen</title>
+        <meta name="description" content="Generate 10,000+ intimidating and dark names for male demons from the abyss. Our name generator creates powerful antagonists for your fantasy stories, games, and worldbuilding projects." />
         <meta name="keywords" content="male demon names, demon lord, dark fantasy, evil names, fantasy villain, name generator, occult names, fantasy character" />
       </Helmet>
       <div className="max-w-7xl mx-auto">

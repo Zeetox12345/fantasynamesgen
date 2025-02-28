@@ -166,8 +166,8 @@ const SeaGodGenerator = () => {
   return (
     <div className="min-h-screen py-8 px-4 sm:py-12 sm:px-6">
       <Helmet>
-        <title>Sea God Name Generator - Oceanic Deities | FantasyNamesGen</title>
-        <meta name="description" content="Generate powerful names for sea gods and goddesses. Create majestic oceanic deities for your fantasy world or story." />
+        <title>Sea God Name Generator - 10,000+ Names for Oceanic Deities | FantasyNamesGen</title>
+        <meta name="description" content="Generate 10,000+ powerful and majestic names for sea gods and goddesses. Create compelling oceanic deities with our fantasy name generator for your mythology, stories, and games." />
         <meta name="keywords" content="sea god names, ocean deity, water goddess, fantasy deity, poseidon, name generator, mythology, aquatic god" />
       </Helmet>
       <div className="max-w-7xl mx-auto">

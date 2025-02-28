@@ -123,8 +123,8 @@ const ReindeerGenerator = () => {
   return (
     <div className="min-h-screen py-8 px-4 sm:py-12 sm:px-6">
       <Helmet>
-        <title>Reindeer Name Generator - Magical & Fantasy Names | FantasyNamesGen</title>
-        <meta name="description" content="Generate magical and festive names for your fantasy reindeer characters. Perfect for holiday stories and winter-themed tales." />
+        <title>Reindeer Name Generator - 10,000+ Magical & Fantasy Names | FantasyNamesGen</title>
+        <meta name="description" content="Generate 10,000+ magical and festive names for your fantasy reindeer characters. Our name generator is perfect for holiday stories, winter-themed tales, and fantasy worldbuilding." />
         <meta name="keywords" content="reindeer names, fantasy reindeer, magical deer, christmas reindeer, winter fantasy, name generator, northern fantasy" />
       </Helmet>
       <div className="max-w-7xl mx-auto">

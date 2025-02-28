@@ -124,8 +124,8 @@ const MerfolkCityGenerator = () => {
   return (
     <div className="min-h-screen py-8 px-4 sm:py-12 sm:px-6">
       <Helmet>
-        <title>Merfolk City Name Generator - Underwater Kingdoms | FantasyNamesGen</title>
-        <meta name="description" content="Generate majestic and mystical names for underwater merfolk cities and settlements. Create unique aquatic civilizations for your fantasy world." />
+        <title>Merfolk City Name Generator - 10,000+ Names for Underwater Kingdoms | FantasyNamesGen</title>
+        <meta name="description" content="Generate 10,000+ majestic and mystical names for underwater merfolk cities and settlements. Create unique aquatic civilizations with our fantasy name generator for your worldbuilding, stories, and games." />
         <meta name="keywords" content="merfolk city names, underwater city, aquatic settlement, fantasy location, mermaid kingdom, name generator, sea kingdom" />
       </Helmet>
       <div className="max-w-7xl mx-auto">
