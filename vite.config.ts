@@ -45,5 +45,7 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
+    // Ensure JSON files are properly processed
+    assetsInclude: ['**/*.json'],
   },
 }));

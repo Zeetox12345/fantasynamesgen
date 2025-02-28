@@ -191,9 +191,10 @@ const SpaceRangerNameGenerator = () => {
     async function fetchNameData() {
       setLoading(true);
       setError(null);
+      
       try {
         const data = await loadNameData("fantasy", "space-ranger");
-        
+                
         // Validate that we have the expected data structure
         if (!isCharacterNameData(data)) {
           console.error("Invalid data structure received:", data);
@@ -201,14 +202,14 @@ const SpaceRangerNameGenerator = () => {
           setLoading(false);
           return;
         }
-        
+                
         if (!data.male?.length || !data.female?.length || !data.lastNames?.length) {
           console.error("Incomplete data structure received:", data);
           setError("Failed to load name data. The data structure is incomplete.");
           setLoading(false);
           return;
         }
-        
+                
         setNameData(data);
         setLoading(false);
       } catch (err) {

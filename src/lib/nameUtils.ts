@@ -57,46 +57,64 @@ export async function loadNameData(category: string, generator: string): Promise
     
     // Handle fantasy category data files
     if (category === 'fantasy') {
-      switch (generator) {
-        case 'space-ranger':
-          data = await import('@/data/fantasy/space-ranger.json');
-          break;
-        case 'dwarf-ranger':
-          data = await import('@/data/fantasy/dwarf-ranger.json');
-          break;
-        case 'elven-ranger':
-          data = await import('@/data/fantasy/elven-ranger.json');
-          break;
-        case 'halfling-ranger':
-          data = await import('@/data/fantasy/halfling-ranger.json');
-          break;
-        case 'chaos-dwarf-city':
-          data = await import('@/data/fantasy/chaos-dwarf-city.json');
-          break;
-        case 'merfolk-city':
-          data = await import('@/data/fantasy/merfolk-city.json');
-          break;
-        case 'sea-god':
-          data = await import('@/data/fantasy/sea-god.json');
-          break;
-        case 'reindeer':
-          data = await import('@/data/fantasy/reindeer.json');
-          break;
-        case 'female-demon':
-          data = await import('@/data/fantasy/female-demon.json');
-          break;
-        case 'male-demon':
-          data = await import('@/data/fantasy/male-demon.json');
-          break;
-        default:
-          throw new Error(`Unknown generator: ${generator}`);
+      try {
+        switch (generator) {
+          case 'space-ranger':
+            data = await import('@/data/fantasy/space-ranger.json');
+            break;
+          case 'dwarf-ranger':
+            data = await import('@/data/fantasy/dwarf-ranger.json');
+            break;
+          case 'elven-ranger':
+            data = await import('@/data/fantasy/elven-ranger.json');
+            break;
+          case 'halfling-ranger':
+            data = await import('@/data/fantasy/halfling-ranger.json');
+            break;
+          case 'chaos-dwarf-city':
+            data = await import('@/data/fantasy/chaos-dwarf-city.json');
+            break;
+          case 'merfolk-city':
+            data = await import('@/data/fantasy/merfolk-city.json');
+            break;
+          case 'sea-god':
+            data = await import('@/data/fantasy/sea-god.json');
+            break;
+          case 'reindeer':
+            data = await import('@/data/fantasy/reindeer.json');
+            break;
+          case 'female-demon':
+            data = await import('@/data/fantasy/female-demon.json');
+            break;
+          case 'male-demon':
+            data = await import('@/data/fantasy/male-demon.json');
+            break;
+          default:
+            throw new Error(`Unknown generator: ${generator}`);
+        }
+        
+        // Handle the default export if it exists
+        data = data.default || data;
+        
+        console.log(`Successfully loaded data for ${category}/${generator}`);
+        return data;
+      } catch (importError) {
+        console.error(`Error importing data for ${category}/${generator}:`, importError);
+        
+        // Try an alternative approach with a relative path
+        try {
+          const relativePath = `../data/${category}/${generator}.json`;
+          console.log(`Trying alternative import path: ${relativePath}`);
+          const alternativeData = await import(relativePath);
+          return alternativeData.default || alternativeData;
+        } catch (alternativeError) {
+          console.error(`Alternative import also failed:`, alternativeError);
+          throw new Error(`Failed to load data for ${category}/${generator}`);
+        }
       }
     } else {
       throw new Error(`Unknown category: ${category}`);
     }
-    
-    console.log(`Successfully loaded data for ${category}/${generator}:`, data);
-    return data;
   } catch (error) {
     console.error(`Failed to load name data for ${category}/${generator}:`, error);
     // Return empty data structure in case of error

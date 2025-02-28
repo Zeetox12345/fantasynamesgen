@@ -3,8 +3,13 @@
  * during the build process for Vercel deployment.
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Get the directory name in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Define source and destination directories
 const sourceDir = path.resolve(__dirname, '../src/data');
@@ -38,8 +43,9 @@ function copyFilesRecursively(source, destination) {
     }
   } else if (stat.isFile() && path.extname(source) === '.json') {
     // Copy the file to the destination
-    fs.copyFileSync(source, destination);
-    console.log(`Copied file: ${source} -> ${destination}`);
+    const destFilePath = destination;
+    fs.copyFileSync(source, destFilePath);
+    console.log(`Copied file: ${source} -> ${destFilePath}`);
   }
 }
 
