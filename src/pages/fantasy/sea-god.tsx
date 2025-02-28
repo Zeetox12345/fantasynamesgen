@@ -59,34 +59,53 @@ const SeaGodGenerator = () => {
     const firstNames = nameData[gender].map(entry => entry.name);
     console.log(`Available ${gender} first names:`, firstNames);
     
-    // Get the last names
-    const lastNames = nameData.lastNames?.map(entry => entry.name) || [];
-    console.log("Available last names:", lastNames);
-    
-    // Check if we have enough names to generate
-    if (firstNames.length === 0 || lastNames.length === 0) {
+    // Check if we have first names to generate
+    if (firstNames.length === 0) {
       console.log("Not enough name data to generate names");
       return;
     }
+    
+    // Get the last names if available
+    const lastNames = nameData.lastNames?.map(entry => entry.name) || [];
+    console.log("Available last names:", lastNames);
     
     // Generate unique combinations
     const maxAttempts = 50; // Prevent infinite loop if we can't find enough unique names
     let attempts = 0;
     
-    while (newNames.length < 10 && attempts < maxAttempts) {
-      // Get random indices
-      const firstNameIndex = Math.floor(Math.random() * firstNames.length);
-      const lastNameIndex = Math.floor(Math.random() * lastNames.length);
-      
-      // Create the full name
-      const fullName = `${firstNames[firstNameIndex]} ${lastNames[lastNameIndex]}`;
-      
-      // Only add if it's not already in the list
-      if (!newNames.includes(fullName)) {
-        newNames.push(fullName);
+    // If we have lastNames, generate first+last name combinations
+    if (lastNames.length > 0) {
+      while (newNames.length < 10 && attempts < maxAttempts) {
+        // Get random indices
+        const firstNameIndex = Math.floor(Math.random() * firstNames.length);
+        const lastNameIndex = Math.floor(Math.random() * lastNames.length);
+        
+        // Create the full name
+        const fullName = `${firstNames[firstNameIndex]} ${lastNames[lastNameIndex]}`;
+        
+        // Only add if it's not already in the list
+        if (!newNames.includes(fullName)) {
+          newNames.push(fullName);
+        }
+        
+        attempts++;
       }
-      
-      attempts++;
+    } else {
+      // If no lastNames available, just use first names
+      while (newNames.length < 10 && attempts < maxAttempts) {
+        // Get random index
+        const firstNameIndex = Math.floor(Math.random() * firstNames.length);
+        
+        // Use just the first name
+        const name = firstNames[firstNameIndex];
+        
+        // Only add if it's not already in the list
+        if (!newNames.includes(name)) {
+          newNames.push(name);
+        }
+        
+        attempts++;
+      }
     }
     
     console.log("Generated sea god names:", newNames);
@@ -100,15 +119,17 @@ const SeaGodGenerator = () => {
     console.log("Clicked on sea god name:", name);
     
     // Find description for each part of the name
-    const [firstName, lastName] = name.split(' ');
+    const nameParts = name.split(' ');
+    const firstName = nameParts[0];
+    const lastName = nameParts.length > 1 ? nameParts[1] : null;
     console.log("Name parts:", firstName, lastName);
     
     // Look for the first name in the correct gender array
     const firstNameEntry = nameData[gender].find(e => e.name === firstName);
     console.log("First name entry:", firstNameEntry);
     
-    // Look for the last name
-    const lastNameEntry = nameData.lastNames?.find(e => e.name === lastName);
+    // Look for the last name if it exists
+    const lastNameEntry = lastName ? nameData.lastNames?.find(e => e.name === lastName) : null;
     console.log("Last name entry:", lastNameEntry);
     
     // Extract descriptions from the entries
