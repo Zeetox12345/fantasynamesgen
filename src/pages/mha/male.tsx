@@ -69,9 +69,9 @@ const MaleHeroNameGenerator = () => {
   return (
     <div className="min-h-screen py-8 px-4 sm:py-12 sm:px-6">
       <Helmet>
-        <title>Male MHA Hero Name Generator | FantasyNamesGen</title>
-        <meta name="description" content="Generate male hero names for your My Hero Academia characters." />
-        <meta name="keywords" content="MHA, My Hero Academia, male hero names, quirk, power, superhero names, anime names" />
+        <title>Male MHA Hero Name Generator - 10,000+ Powerful Names | FantasyNamesGen</title>
+        <meta name="description" content="Generate 10,000+ powerful male hero names for My Hero Academia characters. Create the perfect heroic identity with our free name generator!" />
+        <meta name="keywords" content="MHA, My Hero Academia, male hero names, powerful hero names, anime hero names, superhero names, 10000 hero names" />
       </Helmet>
       <div className="max-w-7xl mx-auto">
         {/* Header with back button */}
