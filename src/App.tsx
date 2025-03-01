@@ -22,6 +22,9 @@ import RangerNameGenerator from "./pages/fantasy/ranger";
 import DarkRangerNameGenerator from "./pages/fantasy/dark-ranger";
 import ACOTARNameGenerator from "./pages/fantasy/acotar";
 import FemaleAlienNameGenerator from "./pages/fantasy/female-alien";
+import MyHeroAcademia from "./pages/MHA";
+import HeroNameGenerator from "./pages/mha/hero";
+import MaleHeroNameGenerator from "./pages/mha/male";
 
 /* HIDDEN ROUTES - TO RESTORE ALL ROUTES:
  * 1. Delete this comment block
@@ -128,7 +131,13 @@ const App = () => (
           <Route path="/sunlesssea" element={<SunlessSea />} />
           <Route path="/lovecraftian" element={<Lovecraftian />} />
           <Route path="/zelda" element={<Zelda />} />
+          */}
+          {/* MHA Routes */}
           <Route path="/mha" element={<MyHeroAcademia />} />
+          <Route path="/mha/hero" element={<HeroNameGenerator />} />
+          <Route path="/mha/male" element={<MaleHeroNameGenerator />} />
+          {/* End MHA Routes */}
+          {/* HIDDEN ROUTES - Uncomment to restore
           <Route path="/beyblade" element={<Beyblade />} />
           <Route path="/eldenring" element={<EldenRing />} />
           <Route path="/startrek" element={<StarTrek />} />

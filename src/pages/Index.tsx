@@ -9,6 +9,13 @@ const categories = [
     icon: <Wand2 className="w-6 h-6" />,
     href: "/fantasy",
     image: "/images/categories/fantasy/fantasy-main.jpg"
+  },
+  {
+    title: "My Hero Academia",
+    description: "Generate hero and villain names from the world of quirks",
+    icon: <Heart className="w-6 h-6" />,
+    href: "/mha",
+    image: "/images/categories/mha/mha-main.jpg"
   }
 ];
 
