@@ -69,7 +69,7 @@ const HeroNameGenerator = () => {
   return (
     <div className="min-h-screen py-8 px-4 sm:py-12 sm:px-6">
       <Helmet>
-        <title>MHA Hero Name Generator - 10,000+ Names | FantasyNamesGen</title>
+        <title>MHA Hero Name Generator Based on Powers - 10,000+ Names | FantasyNamesGen</title>
         <meta name="description" content="Generate 10,000+ unique hero names based on quirks and powers from My Hero Academia. Create the perfect hero identity that matches your character's abilities!" />
         <meta name="keywords" content="MHA, My Hero Academia, hero names, quirk-based names, power-based names, superhero names, anime names, 10000 hero names" />
       </Helmet>
