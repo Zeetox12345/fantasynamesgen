@@ -5,6 +5,30 @@ import { GeneratorCard } from "@/components/GeneratorCard";
 const Fantasy = () => {
   const generators = [
     {
+      title: "Ranger Names",
+      description: "Generate names for skilled wilderness trackers and hunters",
+      href: "/fantasy/ranger",
+      image: "/images/categories/fantasy/ranger/ranger-main.jpg"
+    },
+    {
+      title: "Dark Ranger Names",
+      description: "Create shadowy and mysterious names for dark rangers",
+      href: "/fantasy/dark-ranger",
+      image: "/images/categories/fantasy/dark-ranger/dark-ranger-main.jpg"
+    },
+    {
+      title: "ACOTAR Names",
+      description: "Generate names inspired by the Court of Thorns and Roses series",
+      href: "/fantasy/acotar",
+      image: "/images/categories/fantasy/acotar/acotar-main.jpg"
+    },
+    {
+      title: "Female Alien Names",
+      description: "Create exotic and otherworldly names for female aliens",
+      href: "/fantasy/female-alien",
+      image: "/images/categories/fantasy/female-alien/femalealien-main.jpg"
+    },
+    {
       title: "Space Ranger Names",
       description: "Generate futuristic names for space rangers and cosmic defenders",
       href: "/fantasy/space-ranger",

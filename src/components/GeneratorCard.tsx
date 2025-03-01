@@ -22,7 +22,7 @@ export function GeneratorCard({ title, description, href, image }: GeneratorCard
             <img 
               src={image} 
               alt={`${title} illustration`} 
-              className="w-full h-52 object-cover transition-transform group-hover:scale-105"
+              className="w-full h-64 object-contain transition-transform group-hover:scale-105"
             />
           </div>
         )}

@@ -89,6 +89,18 @@ export async function loadNameData(category: string, generator: string): Promise
           case 'male-demon':
             data = await import('@/data/fantasy/male-demon.json');
             break;
+          case 'ranger':
+            data = await import('@/data/fantasy/ranger.json');
+            break;
+          case 'dark-ranger':
+            data = await import('@/data/fantasy/dark-ranger.json');
+            break;
+          case 'acotar':
+            data = await import('@/data/fantasy/acotar.json');
+            break;
+          case 'femalealien':
+            data = await import('@/data/fantasy/female-alien.json');
+            break;
           default:
             throw new Error(`Unknown generator: ${generator}`);
         }
