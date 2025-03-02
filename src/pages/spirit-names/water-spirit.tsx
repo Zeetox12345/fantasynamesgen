@@ -81,9 +81,9 @@ const WaterSpiritNameGenerator = () => {
   return (
     <div className="min-h-screen py-8 px-4 sm:py-12 sm:px-6">
       <Helmet>
-        <title>Water Spirit Name Generator - Ocean, River & Lake Spirit Names | FantasyNamesGen</title>
-        <meta name="description" content="Generate mystical names for water spirits, sea deities, river guardians, and aquatic entities. Perfect for fantasy stories, water-themed characters, and oceanic adventures." />
-        <meta name="keywords" content="water spirit names, sea spirits, river spirits, lake spirits, water deities, fantasy names, name generator" />
+        <title>Water Spirit Name Generator - 10,000+ Ocean, River & Lake Spirit Names | FantasyNamesGen</title>
+        <meta name="description" content="Generate 10,000+ mystical names for water spirits, sea deities, river guardians, and aquatic entities. Our extensive database offers unique names perfect for fantasy stories, water-themed characters, and oceanic adventures." />
+        <meta name="keywords" content="water spirit names, sea spirits, river spirits, lake spirits, water deities, fantasy names, name generator, 10000 spirit names" />
       </Helmet>
       <div className="max-w-7xl mx-auto">
         {/* Header with back button */}

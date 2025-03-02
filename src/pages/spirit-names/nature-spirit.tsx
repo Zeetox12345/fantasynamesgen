@@ -81,9 +81,9 @@ const NatureSpiritNameGenerator = () => {
   return (
     <div className="min-h-screen py-8 px-4 sm:py-12 sm:px-6">
       <Helmet>
-        <title>Nature Spirit Name Generator - Elemental & Forest Spirit Names | FantasyNamesGen</title>
-        <meta name="description" content="Generate mystical names for nature spirits, forest guardians, and elemental beings. Perfect for fantasy stories, druid characters, and nature-themed projects." />
-        <meta name="keywords" content="nature spirit names, forest spirits, elemental spirits, druid names, fantasy names, name generator" />
+        <title>Nature Spirit Name Generator - 10,000+ Elemental & Forest Spirit Names | FantasyNamesGen</title>
+        <meta name="description" content="Generate 10,000+ mystical names for nature spirits, forest guardians, and elemental beings. Our comprehensive database offers unique names perfect for fantasy stories, druid characters, and nature-themed projects." />
+        <meta name="keywords" content="nature spirit names, forest spirits, elemental spirits, druid names, fantasy names, name generator, 10000 spirit names" />
       </Helmet>
       <div className="max-w-7xl mx-auto">
         {/* Header with back button */}

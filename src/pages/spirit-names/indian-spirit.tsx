@@ -81,9 +81,9 @@ const IndianSpiritNameGenerator = () => {
   return (
     <div className="min-h-screen py-8 px-4 sm:py-12 sm:px-6">
       <Helmet>
-        <title>Indian Spirit Name Generator - Mystical Native American Names | FantasyNamesGen</title>
-        <meta name="description" content="Generate authentic and mystical Indian spirit names inspired by Native American traditions. Perfect for storytelling, role-playing games, and creative writing." />
-        <meta name="keywords" content="Indian spirit names, Native American spirits, spirit name generator, mystical names, fantasy names" />
+        <title>Indian Spirit Name Generator - 10,000+ Mystical Native American Names | FantasyNamesGen</title>
+        <meta name="description" content="Generate 10,000+ authentic and mystical Indian spirit names inspired by Native American traditions. Our comprehensive database offers unique names perfect for storytelling, role-playing games, and creative writing." />
+        <meta name="keywords" content="Indian spirit names, Native American spirits, spirit name generator, mystical names, fantasy names, 10000 spirit names" />
       </Helmet>
       <div className="max-w-7xl mx-auto">
         {/* Header with back button */}

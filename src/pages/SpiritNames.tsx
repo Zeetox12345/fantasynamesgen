@@ -1,6 +1,7 @@
 import { Ghost } from "lucide-react";
 import { CategoryLayout } from "@/components/CategoryLayout";
 import { GeneratorCard } from "@/components/GeneratorCard";
+import { Helmet } from "react-helmet";
 
 const SpiritNames = () => {
   const generators = [
@@ -37,23 +38,30 @@ const SpiritNames = () => {
   ];
 
   return (
-    <CategoryLayout
-      title="Spirit Names"
-      description="Generate names for mystical spirits from various cultures and mythologies"
-      icon={<Ghost className="w-6 h-6" />}
-    >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {generators.map((generator) => (
-          <GeneratorCard
-            key={generator.title}
-            title={generator.title}
-            description={generator.description}
-            href={generator.href}
-            image={generator.image}
-          />
-        ))}
-      </div>
-    </CategoryLayout>
+    <>
+      <Helmet>
+        <title>Spirit Name Generators - 10,000+ Mystical & Magical Spirit Names | FantasyNamesGen</title>
+        <meta name="description" content="Generate 10,000+ mystical spirit names from various cultures and mythologies. Our comprehensive collection includes Indian spirits, JJK cursed spirits, nature spirits, water spirits, and fox spirits." />
+        <meta name="keywords" content="spirit names, mystical names, magical spirits, name generator, fantasy names, 10000 spirit names" />
+      </Helmet>
+      <CategoryLayout
+        title="Spirit Names"
+        description="Generate names for mystical spirits from various cultures and mythologies"
+        icon={<Ghost className="w-6 h-6" />}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {generators.map((generator) => (
+            <GeneratorCard
+              key={generator.title}
+              title={generator.title}
+              description={generator.description}
+              href={generator.href}
+              image={generator.image}
+            />
+          ))}
+        </div>
+      </CategoryLayout>
+    </>
   );
 };
 

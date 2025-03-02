@@ -81,9 +81,9 @@ const FoxSpiritNameGenerator = () => {
   return (
     <div className="min-h-screen py-8 px-4 sm:py-12 sm:px-6">
       <Helmet>
-        <title>Fox Spirit Name Generator - Kitsune & Mythical Fox Names | FantasyNamesGen</title>
-        <meta name="description" content="Generate mystical names for fox spirits, kitsune, and shapeshifting fox entities from various mythologies. Perfect for fantasy stories, folklore-inspired characters, and East Asian mythology." />
-        <meta name="keywords" content="fox spirit names, kitsune names, mythical fox, shapeshifter names, fantasy names, name generator" />
+        <title>Fox Spirit Name Generator - 10,000+ Kitsune & Mythical Fox Names | FantasyNamesGen</title>
+        <meta name="description" content="Generate 10,000+ mystical names for fox spirits, kitsune, and shapeshifting fox entities from various mythologies. Our comprehensive database offers unique names perfect for fantasy stories, folklore-inspired characters, and East Asian mythology." />
+        <meta name="keywords" content="fox spirit names, kitsune names, mythical fox, shapeshifter names, fantasy names, name generator, 10000 spirit names" />
       </Helmet>
       <div className="max-w-7xl mx-auto">
         {/* Header with back button */}

@@ -81,9 +81,9 @@ const JJKCursedSpiritNameGenerator = () => {
   return (
     <div className="min-h-screen py-8 px-4 sm:py-12 sm:px-6">
       <Helmet>
-        <title>JJK Cursed Spirit Name Generator - Jujutsu Kaisen Inspired Names | FantasyNamesGen</title>
-        <meta name="description" content="Generate dark and powerful names for cursed spirits inspired by Jujutsu Kaisen. Perfect for fan fiction, role-playing games, and creative projects." />
-        <meta name="keywords" content="JJK, Jujutsu Kaisen, cursed spirit names, anime names, dark fantasy names, name generator" />
+        <title>JJK Cursed Spirit Name Generator - 10,000+ Jujutsu Kaisen Inspired Names | FantasyNamesGen</title>
+        <meta name="description" content="Generate 10,000+ dark and powerful names for cursed spirits inspired by Jujutsu Kaisen. Our extensive collection is perfect for fan fiction, role-playing games, and creative projects." />
+        <meta name="keywords" content="JJK, Jujutsu Kaisen, cursed spirit names, anime names, dark fantasy names, name generator, 10000 spirit names" />
       </Helmet>
       <div className="max-w-7xl mx-auto">
         {/* Header with back button */}
