@@ -283,5 +283,42 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  -->
+  
+  <!-- Spirit Name Generators -->
+  <url>
+    <loc>https://fantasynamesgen.com/spirit-names</loc>
+    <lastmod>2024-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/spirit-names/indian-spirit</loc>
+    <lastmod>2024-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/spirit-names/jjk-cursed-spirit</loc>
+    <lastmod>2024-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/spirit-names/nature-spirit</loc>
+    <lastmod>2024-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/spirit-names/water-spirit</loc>
+    <lastmod>2024-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/spirit-names/fox-spirit</loc>
+    <lastmod>2024-03-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset> 

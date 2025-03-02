@@ -25,6 +25,13 @@ import FemaleAlienNameGenerator from "./pages/fantasy/female-alien";
 import MyHeroAcademia from "./pages/MHA";
 import HeroNameGenerator from "./pages/mha/hero";
 import MaleHeroNameGenerator from "./pages/mha/male";
+// Spirit Names imports
+import SpiritNames from "./pages/SpiritNames";
+import IndianSpiritNameGenerator from "./pages/spirit-names/indian-spirit";
+import JJKCursedSpiritNameGenerator from "./pages/spirit-names/jjk-cursed-spirit";
+import NatureSpiritNameGenerator from "./pages/spirit-names/nature-spirit";
+import WaterSpiritNameGenerator from "./pages/spirit-names/water-spirit";
+import FoxSpiritNameGenerator from "./pages/spirit-names/fox-spirit";
 
 /* HIDDEN ROUTES - TO RESTORE ALL ROUTES:
  * 1. Delete this comment block
@@ -108,6 +115,14 @@ const App = () => (
           <Route path="/fantasy/dark-ranger" element={<DarkRangerNameGenerator />} />
           <Route path="/fantasy/acotar" element={<ACOTARNameGenerator />} />
           <Route path="/fantasy/female-alien" element={<FemaleAlienNameGenerator />} />
+          {/* Spirit Names Routes */}
+          <Route path="/spirit-names" element={<SpiritNames />} />
+          <Route path="/spirit-names/indian-spirit" element={<IndianSpiritNameGenerator />} />
+          <Route path="/spirit-names/jjk-cursed-spirit" element={<JJKCursedSpiritNameGenerator />} />
+          <Route path="/spirit-names/nature-spirit" element={<NatureSpiritNameGenerator />} />
+          <Route path="/spirit-names/water-spirit" element={<WaterSpiritNameGenerator />} />
+          <Route path="/spirit-names/fox-spirit" element={<FoxSpiritNameGenerator />} />
+          {/* End Spirit Names Routes */}
           {/* HIDDEN ROUTES - Uncomment to restore
           <Route path="/splatoon" element={<Splatoon />} />
           <Route path="/dnd" element={<DungeonsAndDragons />} />

@@ -1,4 +1,4 @@
-import { Wand2, Sword, Skull, Crown, Gamepad, Heart, Atom, Shield, Trees, Sun, Book, Ship, Theater } from "lucide-react";
+import { Wand2, Sword, Skull, Crown, Gamepad, Heart, Atom, Shield, Trees, Sun, Book, Ship, Theater, Ghost } from "lucide-react";
 import { CategoryCard } from "@/components/CategoryCard";
 
 // Active categories - only Fantasy is visible
@@ -16,6 +16,13 @@ const categories = [
     icon: <Heart className="w-6 h-6" />,
     href: "/mha",
     image: "/images/categories/mha/mha-main.jpg"
+  },
+  {
+    title: "Spirit Names",
+    description: "Generate names for mystical spirits from various cultures",
+    icon: <Ghost className="w-6 h-6" />,
+    href: "/spirit-names",
+    image: "/images/categories/spirit-names/spirit-names-main.jpg"
   }
 ];
 
@@ -198,6 +205,12 @@ const categories = [
     description: "Names for all races of Azeroth",
     icon: <Wand2 className="w-6 h-6" />,
     href: "/wow"
+  },
+  {
+    title: "Spirit Names",
+    description: "Generate names for mystical spirits from various cultures",
+    icon: <Ghost className="w-6 h-6" />,
+    href: "/spirit-names"
   }
 ];
 */
