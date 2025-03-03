@@ -68,7 +68,7 @@ const LovecraftianMonsterNameGenerator = () => {
   return (
     <div className="min-h-screen py-8 px-4 sm:py-12 sm:px-6">
       <Helmet>
-        <title>Lovecraftian Monster Name Generator | 10,000+ Cosmic Horror Creature Names | FantasyNamesGen</title>
+        <title>Lovecraftian Monster Name Generator | 10,000+ Names | FantasyNamesGen</title>
         <meta name="description" content="Generate 10,000+ names for terrifying monsters and otherworldly creatures inspired by H.P. Lovecraft's cosmic horror universe. Perfect for creating antagonists for horror stories, games, and Call of Cthulhu campaigns." />
         <meta name="keywords" content="lovecraftian monster names, cosmic horror creatures, cthulhu mythos, name generator, horror antagonists, eldritch abominations, 10000 monster names" />
       </Helmet>

@@ -68,7 +68,7 @@ const LovecraftianDeityNameGenerator = () => {
   return (
     <div className="min-h-screen py-8 px-4 sm:py-12 sm:px-6">
       <Helmet>
-        <title>Lovecraftian Deity Name Generator | 10,000+ Elder God Names | FantasyNamesGen</title>
+        <title>Lovecraftian Deity Name Generator | 10,000+ Names | FantasyNamesGen</title>
         <meta name="description" content="Generate 10,000+ names for cosmic entities, elder gods, and Great Old Ones inspired by H.P. Lovecraft's mythos. Create terrifying deities for your horror stories, games, and RPG campaigns." />
         <meta name="keywords" content="lovecraftian deity names, elder gods, great old ones, cosmic horror, cthulhu mythos, name generator, 10000 deity names" />
       </Helmet>

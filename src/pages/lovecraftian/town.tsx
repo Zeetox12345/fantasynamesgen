@@ -68,7 +68,7 @@ const LovecraftianTownNameGenerator = () => {
   return (
     <div className="min-h-screen py-8 px-4 sm:py-12 sm:px-6">
       <Helmet>
-        <title>Lovecraftian Town Name Generator | 10,000+ Cursed Settlement Names | FantasyNamesGen</title>
+        <title>Lovecraftian Town Name Generator | 10,000+ Names | FantasyNamesGen</title>
         <meta name="description" content="Generate 10,000+ names for eerie, cursed towns and settlements inspired by H.P. Lovecraft's cosmic horror universe. Perfect for creating atmospheric locations for horror stories, games, and Call of Cthulhu campaigns." />
         <meta name="keywords" content="lovecraftian town names, cosmic horror locations, cursed settlements, cthulhu mythos, name generator, horror settings, 10000 town names" />
       </Helmet>

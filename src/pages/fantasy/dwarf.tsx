@@ -68,7 +68,7 @@ const DwarfNameGenerator = () => {
   return (
     <div className="min-h-screen py-8 px-4 sm:py-12 sm:px-6">
       <Helmet>
-        <title>Dwarf Name Generator | 10,000+ Fantasy Dwarf Names | FantasyNamesGen</title>
+        <title>Dwarf Name Generator | 10,000+ Names | FantasyNamesGen</title>
         <meta name="description" content="Generate 10,000+ authentic-sounding dwarf names for your fantasy characters, D&D campaigns, stories, and games. Find the perfect sturdy, noble dwarf name with our free generator." />
         <meta name="keywords" content="dwarf names, fantasy names, name generator, dwarven names, fantasy characters, D&D dwarf names, 10000 dwarf names" />
       </Helmet>

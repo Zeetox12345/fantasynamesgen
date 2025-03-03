@@ -68,7 +68,7 @@ const FemaleLovecraftianNameGenerator = () => {
   return (
     <div className="min-h-screen py-8 px-4 sm:py-12 sm:px-6">
       <Helmet>
-        <title>Female Lovecraftian Name Generator | 10,000+ Cosmic Horror Names | FantasyNamesGen</title>
+        <title>Female Lovecraftian Name Generator | 10,000+ Names | FantasyNamesGen</title>
         <meta name="description" content="Generate 10,000+ mysterious and otherworldly female names inspired by H.P. Lovecraft's cosmic horror universe. Perfect for stories, games, and roleplaying in the Cthulhu mythos." />
         <meta name="keywords" content="lovecraftian female names, cosmic horror, cthulhu mythos, name generator, fantasy names, horror character names, 10000 lovecraftian names" />
       </Helmet>
