@@ -35,6 +35,12 @@ const Fantasy = () => {
       image: "/images/categories/fantasy/space-ranger/space-ranger-main.jpg"
     },
     {
+      title: "Dwarf Names",
+      description: "Create authentic names for stout and sturdy dwarven characters",
+      href: "/fantasy/dwarf",
+      image: "/images/categories/fantasy/dwarf-ranger/dwarf-main.jpg"
+    },
+    {
       title: "Dwarf Ranger Names",
       description: "Create strong and rugged names for dwarven rangers and scouts",
       href: "/fantasy/dwarf-ranger",

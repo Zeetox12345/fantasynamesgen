@@ -99,6 +99,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://fantasynamesgen.com/fantasy/dwarf</loc>
+    <lastmod>2024-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   
   <!-- MHA Name Generators -->
   <url>
@@ -119,7 +125,43 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+  <!-- Lovecraftian Name Generators -->
+  <url>
+    <loc>https://fantasynamesgen.com/lovecraftian</loc>
+    <lastmod>2024-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/lovecraftian/female</loc>
+    <lastmod>2024-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/lovecraftian/deity</loc>
+    <lastmod>2024-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/lovecraftian/town</loc>
+    <lastmod>2024-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/lovecraftian/cult</loc>
+    <lastmod>2024-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/lovecraftian/monster</loc>
+    <lastmod>2024-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- Hidden Routes - Commented out until they are restored
   <url>
     <loc>https://fantasynamesgen.com/splatoon</loc>
@@ -237,12 +279,6 @@
   </url>
   <url>
     <loc>https://fantasynamesgen.com/sunlesssea</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/lovecraftian</loc>
     <lastmod>2024-02-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

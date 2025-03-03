@@ -65,6 +65,9 @@ export async function loadNameData(category: string, generator: string): Promise
           case 'dwarf-ranger':
             data = await import('@/data/fantasy/dwarf-ranger.json');
             break;
+          case 'dwarf':
+            data = await import('@/data/fantasy/dwarf.json');
+            break;
           case 'elven-ranger':
             data = await import('@/data/fantasy/elven-ranger.json');
             break;
@@ -124,7 +127,51 @@ export async function loadNameData(category: string, generator: string): Promise
           throw new Error(`Failed to load data for ${category}/${generator}`);
         }
       }
-    } else {
+    } 
+    // Handle lovecraftian category data files
+    else if (category === 'lovecraftian') {
+      try {
+        switch (generator) {
+          case 'female':
+            data = await import('@/data/lovecraftian/female-lovecraftian.json');
+            break;
+          case 'town':
+            data = await import('@/data/lovecraftian/lovecraftian-town.json');
+            break;
+          case 'cult':
+            data = await import('@/data/lovecraftian/lovecraftian-cult.json');
+            break;
+          case 'monster':
+            data = await import('@/data/lovecraftian/lovecraftian-monster.json');
+            break;
+          case 'deity':
+            data = await import('@/data/lovecraftian/lovecraftian-deity.json');
+            break;
+          default:
+            throw new Error(`Unknown generator: ${generator}`);
+        }
+        
+        // Handle the default export if it exists
+        data = data.default || data;
+        
+        console.log(`Successfully loaded data for ${category}/${generator}`);
+        return data;
+      } catch (importError) {
+        console.error(`Error importing data for ${category}/${generator}:`, importError);
+        
+        // Try an alternative approach with a relative path
+        try {
+          const relativePath = `../data/${category}/${generator}.json`;
+          console.log(`Trying alternative import path: ${relativePath}`);
+          const alternativeData = await import(relativePath);
+          return alternativeData.default || alternativeData;
+        } catch (alternativeError) {
+          console.error(`Alternative import also failed:`, alternativeError);
+          throw new Error(`Failed to load data for ${category}/${generator}`);
+        }
+      }
+    }
+    else {
       throw new Error(`Unknown category: ${category}`);
     }
   } catch (error) {

@@ -23,6 +23,13 @@ const categories = [
     icon: <Ghost className="w-6 h-6" />,
     href: "/spirit-names",
     image: "/images/categories/spirit-names/spirit-names-main.jpg"
+  },
+  {
+    title: "Lovecraftian",
+    description: "Generate cosmic horror names for entities, cults, and cursed towns",
+    icon: <Skull className="w-6 h-6" />,
+    href: "/lovecraftian",
+    image: "/images/categories/lovecraftian/lovecraftian-main.jpg"
   }
 ];
 
