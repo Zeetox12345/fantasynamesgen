@@ -162,164 +162,51 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Hidden Routes - Commented out until they are restored
+  
+  <!-- Splatoon Name Generators -->
   <url>
     <loc>https://fantasynamesgen.com/splatoon</loc>
-    <lastmod>2024-02-26</lastmod>
+    <lastmod>2024-08-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fantasynamesgen.com/dnd</loc>
-    <lastmod>2024-02-26</lastmod>
+    <loc>https://fantasynamesgen.com/splatoon/band</loc>
+    <lastmod>2024-08-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fantasynamesgen.com/skyrim</loc>
-    <lastmod>2024-02-26</lastmod>
+    <loc>https://fantasynamesgen.com/splatoon/idol-group</loc>
+    <lastmod>2024-08-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fantasynamesgen.com/kenshi</loc>
-    <lastmod>2024-02-26</lastmod>
+    <loc>https://fantasynamesgen.com/splatoon/team</loc>
+    <lastmod>2024-08-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fantasynamesgen.com/undertale</loc>
-    <lastmod>2024-02-26</lastmod>
+    <loc>https://fantasynamesgen.com/splatoon/city</loc>
+    <lastmod>2024-08-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fantasynamesgen.com/diablo</loc>
-    <lastmod>2024-02-26</lastmod>
+    <loc>https://fantasynamesgen.com/splatoon/song</loc>
+    <lastmod>2024-08-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fantasynamesgen.com/fallout</loc>
-    <lastmod>2024-02-26</lastmod>
+    <loc>https://fantasynamesgen.com/splatoon/name-tag</loc>
+    <lastmod>2024-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://fantasynamesgen.com/lotr</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/halo</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/poe</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/bg3</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/witcher</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/eso</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/stardew</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/avatar</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/roblox</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/animalcrossing</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/warhammer</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/dragonage</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/sunlesssea</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/zelda</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/beyblade</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/eldenring</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/startrek</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/tadc</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/wow</loc>
-    <lastmod>2024-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
+
   <!-- Spirit Name Generators -->
   <url>
     <loc>https://fantasynamesgen.com/spirit-names</loc>

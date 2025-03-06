@@ -30,6 +30,13 @@ const categories = [
     icon: <Skull className="w-6 h-6" />,
     href: "/lovecraftian",
     image: "/images/categories/lovecraftian/lovecraftian-main.jpg"
+  },
+  {
+    title: "Splatoon",
+    description: "Generate colorful names for bands, teams, and more from the world of Inklings",
+    icon: <Gamepad className="w-6 h-6" />,
+    href: "/splatoon",
+    image: "/images/categories/splatoon/splatoon-main.jpg"
   }
 ];
 

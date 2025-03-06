@@ -35,6 +35,14 @@ import LovecraftianTownNameGenerator from "./pages/lovecraftian/town";
 import LovecraftianCultNameGenerator from "./pages/lovecraftian/cult";
 import LovecraftianMonsterNameGenerator from "./pages/lovecraftian/monster";
 import LovecraftianDeityNameGenerator from "./pages/lovecraftian/deity";
+// Splatoon imports
+import Splatoon from "./pages/Splatoon";
+import SplatoonBandNameGenerator from "./pages/splatoon/band";
+import SplatoonIdolGroupNameGenerator from "./pages/splatoon/idol-group";
+import SplatoonTeamNameGenerator from "./pages/splatoon/team";
+import SplatoonCityNameGenerator from "./pages/splatoon/city";
+import SplatoonSongNameGenerator from "./pages/splatoon/song";
+import SplatoonNameTagGenerator from "./pages/splatoon/name-tag";
 // Other
 import NotFound from "./pages/NotFound";
 
@@ -79,6 +87,14 @@ function App() {
           <Route path="/lovecraftian/cult" element={<LovecraftianCultNameGenerator />} />
           <Route path="/lovecraftian/monster" element={<LovecraftianMonsterNameGenerator />} />
           <Route path="/lovecraftian/deity" element={<LovecraftianDeityNameGenerator />} />
+          {/* Splatoon Routes */}
+          <Route path="/splatoon" element={<Splatoon />} />
+          <Route path="/splatoon/band" element={<SplatoonBandNameGenerator />} />
+          <Route path="/splatoon/idol-group" element={<SplatoonIdolGroupNameGenerator />} />
+          <Route path="/splatoon/team" element={<SplatoonTeamNameGenerator />} />
+          <Route path="/splatoon/city" element={<SplatoonCityNameGenerator />} />
+          <Route path="/splatoon/song" element={<SplatoonSongNameGenerator />} />
+          <Route path="/splatoon/name-tag" element={<SplatoonNameTagGenerator />} />
           {/* 404 Route */}
           <Route path="*" element={<NotFound />} />
         </Routes>
