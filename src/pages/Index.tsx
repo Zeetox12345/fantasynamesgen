@@ -37,6 +37,13 @@ const categories = [
     icon: <Gamepad className="w-6 h-6" />,
     href: "/splatoon",
     image: "/images/categories/splatoon/splatoon-main.jpg"
+  },
+  {
+    title: "Beyblade",
+    description: "Generate powerful names for beyblades, special moves, and more from the world of spinning tops",
+    icon: <Sword className="w-6 h-6" />,
+    href: "/beyblade",
+    image: "/images/categories/beyblade/beyblade-main.jpg"
   }
 ];
 

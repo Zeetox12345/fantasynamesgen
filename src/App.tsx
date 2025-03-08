@@ -43,6 +43,11 @@ import SplatoonTeamNameGenerator from "./pages/splatoon/team";
 import SplatoonCityNameGenerator from "./pages/splatoon/city";
 import SplatoonSongNameGenerator from "./pages/splatoon/song";
 import SplatoonNameTagGenerator from "./pages/splatoon/name-tag";
+// Beyblade imports
+import Beyblade from "./pages/Beyblade";
+import BeybladeNameGenerator from "./pages/beyblade/beyblade-names";
+import BeybladeBurstNameGenerator from "./pages/beyblade/burst";
+import BeybladeSpecialMoveNameGenerator from "./pages/beyblade/special-move";
 // Other
 import NotFound from "./pages/NotFound";
 
@@ -95,6 +100,11 @@ function App() {
           <Route path="/splatoon/city" element={<SplatoonCityNameGenerator />} />
           <Route path="/splatoon/song" element={<SplatoonSongNameGenerator />} />
           <Route path="/splatoon/name-tag" element={<SplatoonNameTagGenerator />} />
+          {/* Beyblade Routes */}
+          <Route path="/beyblade" element={<Beyblade />} />
+          <Route path="/beyblade/beyblade-names" element={<BeybladeNameGenerator />} />
+          <Route path="/beyblade/burst" element={<BeybladeBurstNameGenerator />} />
+          <Route path="/beyblade/special-move" element={<BeybladeSpecialMoveNameGenerator />} />
           {/* 404 Route */}
           <Route path="*" element={<NotFound />} />
         </Routes>

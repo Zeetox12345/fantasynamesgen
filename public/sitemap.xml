@@ -207,6 +207,32 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Beyblade Name Generators -->
+  <url>
+    <loc>https://fantasynamesgen.com/beyblade</loc>
+    <lastmod>2024-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/beyblade/beyblade-names</loc>
+    <lastmod>2024-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/beyblade/burst</loc>
+    <lastmod>2024-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/beyblade/special-move</loc>
+    <lastmod>2024-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Spirit Name Generators -->
   <url>
     <loc>https://fantasynamesgen.com/spirit-names</loc>
