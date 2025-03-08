@@ -3,7 +3,7 @@ import { CategoryLayout } from "@/components/CategoryLayout";
 import { GeneratorCard } from "@/components/GeneratorCard";
 import { Helmet } from "react-helmet";
 
-const WorldofWarcraft = () => {
+const WorldOfWarcraft = () => {
   const generators = [
     {
       title: "Nightborne Mage Name Generator",
@@ -65,4 +65,4 @@ const WorldofWarcraft = () => {
   );
 };
 
-export default WorldofWarcraft; 
+export default WorldOfWarcraft; 
