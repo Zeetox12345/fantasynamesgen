@@ -48,6 +48,13 @@ import Beyblade from "./pages/Beyblade";
 import BeybladeNameGenerator from "./pages/beyblade/beyblade-names";
 import BeybladeBurstNameGenerator from "./pages/beyblade/burst";
 import BeybladeSpecialMoveNameGenerator from "./pages/beyblade/special-move";
+// World of Warcraft imports
+import WorldofWarcraft from "./pages/WorldofWarcraft";
+import NightborneMageNameGenerator from "./pages/worldofwarcraft/nightborne-mage";
+import OrcWarriorNameGenerator from "./pages/worldofwarcraft/orc-warrior";
+import OrcShamanNameGenerator from "./pages/worldofwarcraft/orc-shaman";
+import MagharOrcNameGenerator from "./pages/worldofwarcraft/maghar-orc";
+import EarthenDwarfNameGenerator from "./pages/worldofwarcraft/earthen-dwarf";
 // Other
 import NotFound from "./pages/NotFound";
 
@@ -105,6 +112,13 @@ function App() {
           <Route path="/beyblade/beyblade-names" element={<BeybladeNameGenerator />} />
           <Route path="/beyblade/burst" element={<BeybladeBurstNameGenerator />} />
           <Route path="/beyblade/special-move" element={<BeybladeSpecialMoveNameGenerator />} />
+          {/* World of Warcraft Routes */}
+          <Route path="/worldofwarcraft" element={<WorldofWarcraft />} />
+          <Route path="/worldofwarcraft/nightborne-mage" element={<NightborneMageNameGenerator />} />
+          <Route path="/worldofwarcraft/orc-warrior" element={<OrcWarriorNameGenerator />} />
+          <Route path="/worldofwarcraft/orc-shaman" element={<OrcShamanNameGenerator />} />
+          <Route path="/worldofwarcraft/maghar-orc" element={<MagharOrcNameGenerator />} />
+          <Route path="/worldofwarcraft/earthen-dwarf" element={<EarthenDwarfNameGenerator />} />
           {/* 404 Route */}
           <Route path="*" element={<NotFound />} />
         </Routes>

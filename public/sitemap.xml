@@ -233,6 +233,44 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- World of Warcraft Name Generators -->
+  <url>
+    <loc>https://fantasynamesgen.com/worldofwarcraft</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/worldofwarcraft/nightborne-mage</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/worldofwarcraft/orc-warrior</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/worldofwarcraft/orc-shaman</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/worldofwarcraft/maghar-orc</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/worldofwarcraft/earthen-dwarf</loc>
+    <lastmod>2024-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Spirit Name Generators -->
   <url>
     <loc>https://fantasynamesgen.com/spirit-names</loc>

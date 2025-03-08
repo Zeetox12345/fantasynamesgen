@@ -44,6 +44,13 @@ const categories = [
     icon: <Sword className="w-6 h-6" />,
     href: "/beyblade",
     image: "/images/categories/beyblade/beyblade-main.jpg"
+  },
+  {
+    title: "World of Warcraft",
+    description: "Generate authentic names for races and classes from the world of Azeroth",
+    icon: <Wand2 className="w-6 h-6" />,
+    href: "/worldofwarcraft",
+    image: "/images/categories/worldofwarcraft/worldofwarcraft-main.jpg"
   }
 ];
 
