@@ -308,4 +308,60 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- Dungeons and Dragons Name Generators -->
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons</loc>
+    <lastmod>2024-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/dwarf-city</loc>
+    <lastmod>2024-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/deep-gnome-city</loc>
+    <lastmod>2024-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/sea</loc>
+    <lastmod>2024-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/female-half-elf</loc>
+    <lastmod>2024-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/elf-druid</loc>
+    <lastmod>2024-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/blacksmith</loc>
+    <lastmod>2024-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/merfolk</loc>
+    <lastmod>2024-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/dark-urge</loc>
+    <lastmod>2024-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset> 

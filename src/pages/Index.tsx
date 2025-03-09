@@ -51,6 +51,13 @@ const categories = [
     icon: <Wand2 className="w-6 h-6" />,
     href: "/worldofwarcraft",
     image: "/images/categories/worldofwarcraft/worldofwarcraft-main.jpg"
+  },
+  {
+    title: "Dungeons and Dragons",
+    description: "Generate authentic names for characters, locations, and more from the world of DnD",
+    icon: <Sword className="w-6 h-6" />,
+    href: "/dungeonsanddragons",
+    image: "/images/categories/dungeonsanddragons/dungeonsanddragons-main.jpg"
   }
 ];
 

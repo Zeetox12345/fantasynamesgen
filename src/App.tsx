@@ -55,6 +55,16 @@ import OrcWarriorNameGenerator from "./pages/worldofwarcraft/orc-warrior";
 import OrcShamanNameGenerator from "./pages/worldofwarcraft/orc-shaman";
 import MagharOrcNameGenerator from "./pages/worldofwarcraft/maghar-orc";
 import EarthenDwarfNameGenerator from "./pages/worldofwarcraft/earthen-dwarf";
+// Dungeons and Dragons imports
+import DungeonsAndDragons from "./pages/DungeonsAndDragons";
+import DwarfCityNameGenerator from "./pages/dungeonsanddragons/dwarf-city";
+import DarkUrgeNameGenerator from "./pages/dungeonsanddragons/dark-urge";
+import MerfolkNameGenerator from "./pages/dungeonsanddragons/merfolk";
+import SeaNameGenerator from "./pages/dungeonsanddragons/sea";
+import BlacksmithNameGenerator from "./pages/dungeonsanddragons/blacksmith";
+import ElfDruidNameGenerator from "./pages/dungeonsanddragons/elf-druid";
+import DeepGnomeCityNameGenerator from "./pages/dungeonsanddragons/deep-gnome-city";
+import FemaleHalfElfNameGenerator from "./pages/dungeonsanddragons/female-half-elf";
 // Other
 import NotFound from "./pages/NotFound";
 
@@ -119,6 +129,16 @@ function App() {
           <Route path="/worldofwarcraft/orc-shaman" element={<OrcShamanNameGenerator />} />
           <Route path="/worldofwarcraft/maghar-orc" element={<MagharOrcNameGenerator />} />
           <Route path="/worldofwarcraft/earthen-dwarf" element={<EarthenDwarfNameGenerator />} />
+          {/* Dungeons and Dragons Routes */}
+          <Route path="/dungeonsanddragons" element={<DungeonsAndDragons />} />
+          <Route path="/dungeonsanddragons/dwarf-city" element={<DwarfCityNameGenerator />} />
+          <Route path="/dungeonsanddragons/dark-urge" element={<DarkUrgeNameGenerator />} />
+          <Route path="/dungeonsanddragons/merfolk" element={<MerfolkNameGenerator />} />
+          <Route path="/dungeonsanddragons/sea" element={<SeaNameGenerator />} />
+          <Route path="/dungeonsanddragons/blacksmith" element={<BlacksmithNameGenerator />} />
+          <Route path="/dungeonsanddragons/elf-druid" element={<ElfDruidNameGenerator />} />
+          <Route path="/dungeonsanddragons/deep-gnome-city" element={<DeepGnomeCityNameGenerator />} />
+          <Route path="/dungeonsanddragons/female-half-elf" element={<FemaleHalfElfNameGenerator />} />
           {/* 404 Route */}
           <Route path="*" element={<NotFound />} />
         </Routes>
