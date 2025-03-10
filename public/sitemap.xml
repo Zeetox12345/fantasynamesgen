@@ -312,7 +312,61 @@
   <!-- Dungeons and Dragons Name Generators -->
   <url>
     <loc>https://fantasynamesgen.com/dungeonsanddragons</loc>
-    <lastmod>2024-09-09</lastmod>
+    <lastmod>2024-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/male-half-elf</loc>
+    <lastmod>2024-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/wood-half-elf</loc>
+    <lastmod>2024-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/drow-half-elf</loc>
+    <lastmod>2024-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/high-half-elf</loc>
+    <lastmod>2024-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/gladiator</loc>
+    <lastmod>2024-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/group</loc>
+    <lastmod>2024-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/sorcerer</loc>
+    <lastmod>2024-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/dwarf-clan</loc>
+    <lastmod>2024-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/female-genie</loc>
+    <lastmod>2024-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -323,31 +377,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fantasynamesgen.com/dungeonsanddragons/deep-gnome-city</loc>
-    <lastmod>2024-09-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/dungeonsanddragons/sea</loc>
-    <lastmod>2024-09-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/dungeonsanddragons/female-half-elf</loc>
-    <lastmod>2024-09-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/dungeonsanddragons/elf-druid</loc>
-    <lastmod>2024-09-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://fantasynamesgen.com/dungeonsanddragons/blacksmith</loc>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/dark-urge</loc>
     <lastmod>2024-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -359,7 +389,31 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fantasynamesgen.com/dungeonsanddragons/dark-urge</loc>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/sea</loc>
+    <lastmod>2024-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/blacksmith</loc>
+    <lastmod>2024-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/elf-druid</loc>
+    <lastmod>2024-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/deep-gnome-city</loc>
+    <lastmod>2024-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fantasynamesgen.com/dungeonsanddragons/female-half-elf</loc>
     <lastmod>2024-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

@@ -5,6 +5,60 @@ import { GeneratorCard } from "@/components/GeneratorCard";
 const DungeonsAndDragons = () => {
   const generators = [
     {
+      title: "Male Half-Elf Name Generator",
+      description: "Create authentic and diverse names for male half-elf characters",
+      href: "/dungeonsanddragons/male-half-elf",
+      image: "/images/categories/dungeonsanddragons/male-half-elf/male-half-elf-main.jpg"
+    },
+    {
+      title: "Wood Half-Elf Name Generator",
+      description: "Generate nature-inspired names for wood half-elf characters",
+      href: "/dungeonsanddragons/wood-half-elf",
+      image: "/images/categories/dungeonsanddragons/wood-half-elf/wood-half-elf-main.jpg"
+    },
+    {
+      title: "Drow Half-Elf Name Generator",
+      description: "Create mysterious and exotic names for drow half-elf characters",
+      href: "/dungeonsanddragons/drow-half-elf",
+      image: "/images/categories/dungeonsanddragons/drow-half-elf/drow-half-elf-main.jpg"
+    },
+    {
+      title: "High Half-Elf Name Generator",
+      description: "Generate elegant and noble names for high half-elf characters",
+      href: "/dungeonsanddragons/high-half-elf",
+      image: "/images/categories/dungeonsanddragons/high-half-elf/high-half-elf-main.jpg"
+    },
+    {
+      title: "Gladiator Name Generator",
+      description: "Create powerful and memorable names for gladiator characters",
+      href: "/dungeonsanddragons/gladiator",
+      image: "/images/categories/dungeonsanddragons/gladiator/gladiator-main.jpg"
+    },
+    {
+      title: "Group Name Generator",
+      description: "Generate unique and catchy names for adventuring parties and groups",
+      href: "/dungeonsanddragons/group",
+      image: "/images/categories/dungeonsanddragons/group/group-main.jpg"
+    },
+    {
+      title: "Sorcerer Name Generator",
+      description: "Create mystical and powerful names for sorcerer characters",
+      href: "/dungeonsanddragons/sorcerer",
+      image: "/images/categories/dungeonsanddragons/sorcerer/sorcerer-main.jpg"
+    },
+    {
+      title: "Dwarf Clan Name Generator",
+      description: "Generate traditional and robust names for dwarf clans and families",
+      href: "/dungeonsanddragons/dwarf-clan",
+      image: "/images/categories/dungeonsanddragons/dwarf-clan/dwarf-clan-main.jpg"
+    },
+    {
+      title: "Female Genie Name Generator",
+      description: "Create exotic and magical names for female genie characters",
+      href: "/dungeonsanddragons/female-genie",
+      image: "/images/categories/dungeonsanddragons/female-genie/female-genie-main.jpg"
+    },
+    {
       title: "Dwarf City Name Generator",
       description: "Create authentic and immersive names for dwarven cities and strongholds",
       href: "/dungeonsanddragons/dwarf-city",

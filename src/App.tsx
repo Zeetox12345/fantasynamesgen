@@ -65,6 +65,15 @@ import BlacksmithNameGenerator from "./pages/dungeonsanddragons/blacksmith";
 import ElfDruidNameGenerator from "./pages/dungeonsanddragons/elf-druid";
 import DeepGnomeCityNameGenerator from "./pages/dungeonsanddragons/deep-gnome-city";
 import FemaleHalfElfNameGenerator from "./pages/dungeonsanddragons/female-half-elf";
+import MaleHalfElfNameGenerator from "./pages/dungeonsanddragons/male-half-elf";
+import WoodHalfElfNameGenerator from "./pages/dungeonsanddragons/wood-half-elf";
+import DrowHalfElfNameGenerator from "./pages/dungeonsanddragons/drow-half-elf";
+import HighHalfElfNameGenerator from "./pages/dungeonsanddragons/high-half-elf";
+import GladiatorNameGenerator from "./pages/dungeonsanddragons/gladiator";
+import GroupNameGenerator from "./pages/dungeonsanddragons/group";
+import SorcererNameGenerator from "./pages/dungeonsanddragons/sorcerer";
+import DwarfClanNameGenerator from "./pages/dungeonsanddragons/dwarf-clan";
+import FemaleGenieNameGenerator from "./pages/dungeonsanddragons/female-genie";
 // Other
 import NotFound from "./pages/NotFound";
 
@@ -139,6 +148,15 @@ function App() {
           <Route path="/dungeonsanddragons/elf-druid" element={<ElfDruidNameGenerator />} />
           <Route path="/dungeonsanddragons/deep-gnome-city" element={<DeepGnomeCityNameGenerator />} />
           <Route path="/dungeonsanddragons/female-half-elf" element={<FemaleHalfElfNameGenerator />} />
+          <Route path="/dungeonsanddragons/male-half-elf" element={<MaleHalfElfNameGenerator />} />
+          <Route path="/dungeonsanddragons/wood-half-elf" element={<WoodHalfElfNameGenerator />} />
+          <Route path="/dungeonsanddragons/drow-half-elf" element={<DrowHalfElfNameGenerator />} />
+          <Route path="/dungeonsanddragons/high-half-elf" element={<HighHalfElfNameGenerator />} />
+          <Route path="/dungeonsanddragons/gladiator" element={<GladiatorNameGenerator />} />
+          <Route path="/dungeonsanddragons/group" element={<GroupNameGenerator />} />
+          <Route path="/dungeonsanddragons/sorcerer" element={<SorcererNameGenerator />} />
+          <Route path="/dungeonsanddragons/dwarf-clan" element={<DwarfClanNameGenerator />} />
+          <Route path="/dungeonsanddragons/female-genie" element={<FemaleGenieNameGenerator />} />
           {/* 404 Route */}
           <Route path="*" element={<NotFound />} />
         </Routes>
